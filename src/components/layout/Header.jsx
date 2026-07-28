@@ -1,13 +1,22 @@
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.jpg";
 
 function Header() {
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Resources", path: "/resources" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
         {/* Logo */}
 
-        <div className="flex items-center gap-3">
+        <NavLink to="/" className="flex items-center gap-3">
 
           <img
             src={logo}
@@ -25,39 +34,38 @@ function Header() {
             </p>
           </div>
 
-        </div>
+        </NavLink>
 
         {/* Navigation */}
 
-        <nav className="hidden items-center gap-8 text-sm font-medium lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
 
-          <a href="#" className="transition hover:text-[#0F3D91]">
-            Home
-          </a>
-
-          <a href="#" className="transition hover:text-[#0F3D91]">
-            About
-          </a>
-
-          <a href="#" className="transition hover:text-[#0F3D91]">
-            Services
-          </a>
-
-          <a href="#" className="transition hover:text-[#0F3D91]">
-            Knowledge Centre
-          </a>
-
-          <a href="#" className="transition hover:text-[#0F3D91]">
-            Contact
-          </a>
+          {navItems.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                `font-medium transition ${
+                  isActive
+                    ? "text-[#0F3D91]"
+                    : "text-gray-600 hover:text-[#0F3D91]"
+                }`
+              }
+            >
+              {item.name}
+            </NavLink>
+          ))}
 
         </nav>
 
         {/* CTA */}
 
-        <button className="rounded-xl bg-[#FF8C00] px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E67E00]">
+        <NavLink
+          to="/contact"
+          className="rounded-xl bg-[#FF8C00] px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E67E00]"
+        >
           Book Consultation
-        </button>
+        </NavLink>
 
       </div>
     </header>

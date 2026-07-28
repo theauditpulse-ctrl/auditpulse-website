@@ -1,122 +1,71 @@
+import { motion } from "framer-motion";
+import { Calendar, MessageCircle } from "lucide-react";
+import HeroIllustration from "../../assets/images/hero-illustration.svg.png";
+
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-16 px-6 py-24 lg:flex-row">
-        
-        {/* Left Content */}
-        <div className="max-w-2xl">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
 
-          <span className="inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-[#0F3D91]">
+      {/* Background Blur */}
+      <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-200/20 blur-3xl"></div>
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-orange-200/20 blur-3xl"></div>
+
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-16 px-6 py-24 lg:flex-row">
+
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-2xl"
+        >
+          <span className="inline-flex items-center rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0F3D91]">
             Empowering Businesses Through Better Financial Decisions
           </span>
 
-          <h1 className="mt-8 text-5xl font-bold leading-tight text-[#0F3D91] lg:text-6xl">
+          <h1 className="mt-8 text-5xl font-extrabold leading-tight text-[#0F3D91] lg:text-7xl">
             Compliance Made
             <br />
-            <span className="text-[#0F3D91]">Simple.</span>
+            <span>Simple.</span>
             <span className="text-[#FF8C00]"> Growth Made Possible.</span>
           </h1>
 
-          <p className="mt-8 text-lg leading-8 text-gray-600">
-            Professional accounting, taxation and business compliance
-            services designed to help individuals, entrepreneurs and
-            growing businesses make informed financial decisions with
-            confidence.
+          <p className="mt-8 max-w-xl text-lg leading-8 text-gray-600">
+            Professional accounting, taxation and compliance solutions for
+            individuals, entrepreneurs and businesses across India — delivered
+            with transparency, accuracy and timely service.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-10 flex flex-wrap gap-5">
 
-            <button className="rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-1 hover:bg-blue-900">
+            <button className="flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-xl transition duration-300 hover:-translate-y-1 hover:bg-blue-900">
+              <Calendar size={20} />
               Book Consultation
             </button>
 
-            <button className="rounded-xl border-2 border-[#0F3D91] px-8 py-4 font-semibold text-[#0F3D91] transition hover:bg-[#0F3D91] hover:text-white">
+            <button className="flex items-center gap-3 rounded-xl border-2 border-[#0F3D91] px-8 py-4 font-semibold text-[#0F3D91] transition duration-300 hover:bg-[#0F3D91] hover:text-white">
+              <MessageCircle size={20} />
               Chat on WhatsApp
             </button>
 
           </div>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-3">
+        </motion.div>
 
-            <div className="rounded-xl bg-white p-5 shadow-md">
-              <h3 className="font-semibold text-[#0F3D91]">
-                Personalized Service
-              </h3>
+        {/* RIGHT IMAGE */}
 
-              <p className="mt-2 text-sm text-gray-600">
-                Every client receives dedicated attention and practical financial guidance.
-              </p>
-            </div>
-
-            <div className="rounded-xl bg-white p-5 shadow-md">
-              <h3 className="font-semibold text-[#0F3D91]">
-                Transparent Communication
-              </h3>
-
-              <p className="mt-2 text-sm text-gray-600">
-                Clear advice, timely updates and complete transparency.
-              </p>
-            </div>
-
-            <div className="rounded-xl bg-white p-5 shadow-md">
-              <h3 className="font-semibold text-[#0F3D91]">
-                Reliable Support
-              </h3>
-
-              <p className="mt-2 text-sm text-gray-600">
-                Helping you stay compliant and make informed financial decisions.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Right Content */}
-
-        <div className="grid w-full max-w-lg gap-5">
-
-          <div className="rounded-2xl bg-white p-6 shadow-xl">
-            <h3 className="text-xl font-bold text-[#0F3D91]">
-              Income Tax Return Filing
-            </h3>
-
-            <p className="mt-3 text-gray-600">
-              Accurate and timely income tax filing for individuals and businesses.
-            </p>
-          </div>
-
-          <div className="rounded-2xl bg-[#0F3D91] p-6 text-white shadow-xl">
-            <h3 className="text-xl font-bold">
-              GST Registration & Returns
-            </h3>
-
-            <p className="mt-3 text-blue-100">
-              Complete GST registration, return filing and compliance support.
-            </p>
-          </div>
-
-          <div className="rounded-2xl bg-white p-6 shadow-xl">
-            <h3 className="text-xl font-bold text-[#0F3D91]">
-              Company & OPC Registration
-            </h3>
-
-            <p className="mt-3 text-gray-600">
-              Hassle-free business incorporation and ROC compliance services.
-            </p>
-          </div>
-
-          <div className="rounded-2xl bg-[#FF8C00] p-6 text-white shadow-xl">
-            <h3 className="text-xl font-bold">
-              Accounting Services
-            </h3>
-
-            <p className="mt-3 text-orange-100">
-              Professional accounting solutions that support smarter business decisions.
-            </p>
-          </div>
-
-        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-2xl"
+        >
+          <img
+            src={HeroIllustration}
+            alt="Audit Pulse Illustration"
+            className="w-full drop-shadow-2xl"
+          />
+        </motion.div>
 
       </div>
     </section>
