@@ -1,201 +1,122 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import { FileText, Receipt, Calculator, Building2, Landmark, Briefcase } from "lucide-react";
 
-import {
-  FileText,
-  Receipt,
-  Calculator,
-  Building2,
-  Landmark,
-  Briefcase,
-  CheckCircle,
-} from "lucide-react";
-
-import { motion } from "framer-motion";
+const services = [
+  {
+    icon: FileText,
+    title: "Income Tax Return Filing",
+    description:
+      "Accurate income tax return preparation for salaried individuals, professionals and businesses.",
+    points: ["ITR Filing","Tax Planning","Capital Gains","Notice Assistance"],
+  },
+  {
+    icon: Receipt,
+    title: "GST Services",
+    description:
+      "Complete GST registration, return filing and compliance support.",
+    points: ["GST Registration","Monthly/Quarterly Returns","Annual Returns","GST Advisory"],
+  },
+  {
+    icon: Calculator,
+    title: "Accounting & Bookkeeping",
+    description:
+      "Reliable bookkeeping and financial reporting for growing businesses.",
+    points: ["Bookkeeping","Bank Reconciliation","Financial Statements","MIS Reports"],
+  },
+  {
+    icon: Building2,
+    title: "Business Registration",
+    description:
+      "Start your business with the right legal structure.",
+    points: ["Proprietorship","Partnership","LLP","Private Limited Company"],
+  },
+  {
+    icon: Landmark,
+    title: "ROC Compliance",
+    description:
+      "Stay compliant with statutory ROC requirements.",
+    points: ["Annual Filing","Director KYC","DIN Services","Company Compliance"],
+  },
+  {
+    icon: Briefcase,
+    title: "Business Advisory",
+    description:
+      "Practical financial guidance to help your business grow.",
+    points: ["Financial Planning","Cash Flow","Business Growth","Compliance Strategy"],
+  },
+];
 
 function Services() {
-  const services = [
-    {
-      icon: FileText,
-      title: "Income Tax Filing",
-      description:
-        "Preparation and filing of Income Tax Returns for salaried individuals, professionals and businesses.",
-    },
-    {
-      icon: Receipt,
-      title: "GST Services",
-      description:
-        "GST registration, return filing, notices, amendments and complete GST compliance.",
-    },
-    {
-      icon: Calculator,
-      title: "Accounting & Bookkeeping",
-      description:
-        "Professional bookkeeping, MIS reports, financial statements and accounting support.",
-    },
-    {
-      icon: Building2,
-      title: "Business Registration",
-      description:
-        "Private Limited Company, LLP, OPC, Partnership and Proprietorship registrations.",
-    },
-    {
-      icon: Landmark,
-      title: "ROC Compliance",
-      description:
-        "Annual ROC filings, director compliances and statutory company compliance services.",
-    },
-    {
-      icon: Briefcase,
-      title: "Business Advisory",
-      description:
-        "Practical advice to improve compliance, financial management and business growth.",
-    },
-  ];
-
-  const whyChoose = [
-    "Qualified Professional Support",
-    "Transparent Communication",
-    "Accurate Documentation",
-    "Timely Compliance",
-    "Affordable Pricing",
-    "Completely Online Process",
-  ];
-
   return (
     <>
       <Header />
 
       <main>
-
-        {/* Hero */}
-
         <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
           <div className="mx-auto max-w-7xl px-6 text-center">
-
             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
               Our Services
             </span>
-
             <h1 className="mt-4 text-5xl font-bold text-[#0F3D91] lg:text-6xl">
-              Professional Financial
-              <br />
-              Services Under One Roof
+              Professional Accounting & Tax Solutions
             </h1>
-
             <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600">
-              From tax filing and accounting to company registration and
-              compliance, Audit Pulse provides reliable financial solutions
-              for individuals, professionals and businesses across India.
+              End-to-end accounting, taxation and compliance services designed
+              for individuals, startups and businesses.
             </p>
-
           </div>
         </section>
-
-        {/* Services Grid */}
 
         <section className="bg-white py-24">
           <div className="mx-auto max-w-7xl px-6">
-
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
               {services.map((service) => {
                 const Icon = service.icon;
-
                 return (
-                  <motion.div
-                    key={service.title}
-                    whileHover={{ y: -8 }}
-                    className="rounded-2xl bg-white p-8 shadow-lg transition"
-                  >
+                  <div key={service.title} className="rounded-2xl bg-white p-8 shadow-lg hover:shadow-2xl transition">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-[#0F3D91]">
-                      <Icon size={30} />
+                      <Icon size={28} />
                     </div>
 
-                    <h3 className="mt-6 text-2xl font-semibold text-[#0F3D91]">
+                    <h2 className="mt-6 text-2xl font-bold text-[#0F3D91]">
                       {service.title}
-                    </h3>
+                    </h2>
 
-                    <p className="mt-4 leading-7 text-gray-600">
+                    <p className="mt-4 text-gray-600">
                       {service.description}
                     </p>
 
-                  </motion.div>
+                    <ul className="mt-6 space-y-2 text-gray-700">
+                      {service.points.map((point) => (
+                        <li key={point}>✓ {point}</li>
+                      ))}
+                    </ul>
+                  </div>
                 );
               })}
-
             </div>
-
           </div>
         </section>
 
-        {/* Why Choose */}
-
-        <section className="bg-slate-50 py-24">
-          <div className="mx-auto max-w-7xl px-6">
-
-            <div className="text-center">
-
-              <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
-                Why Audit Pulse
-              </span>
-
-              <h2 className="mt-4 text-4xl font-bold text-[#0F3D91]">
-                Why Clients Choose Us
-              </h2>
-
-            </div>
-
-            <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-              {whyChoose.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-4 rounded-xl bg-white p-6 shadow"
-                >
-                  <CheckCircle
-                    className="text-[#FF8C00]"
-                    size={24}
-                  />
-
-                  <span className="font-medium text-[#0F3D91]">
-                    {item}
-                  </span>
-
-                </div>
-              ))}
-
-            </div>
-
-          </div>
-        </section>
-
-        {/* CTA */}
-
-        <section className="bg-[#0F3D91] py-20 text-white">
-          <div className="mx-auto max-w-5xl px-6 text-center">
-
+        <section className="bg-[#0F3D91] py-20 text-center text-white">
+          <div className="mx-auto max-w-4xl px-6">
             <h2 className="text-4xl font-bold">
-              Need Professional Assistance?
+              Need Professional Financial Guidance?
             </h2>
-
             <p className="mt-6 text-lg text-blue-100">
-              Let Audit Pulse take care of your accounting, taxation and
-              compliance while you focus on growing your business.
+              Whether you're an individual or a growing business, Audit Pulse is
+              here to simplify your accounting, taxation and compliance.
             </p>
 
             <a
-              href="https://wa.me/919025973127"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-10 inline-block rounded-xl bg-white px-8 py-4 font-semibold text-[#0F3D91] transition hover:-translate-y-1"
+              href="/contact"
+              className="mt-10 inline-block rounded-xl bg-[#FF8C00] px-8 py-4 font-semibold text-white hover:bg-orange-600"
             >
-              Chat on WhatsApp
+              Book a Consultation
             </a>
-
           </div>
         </section>
-
       </main>
 
       <Footer />

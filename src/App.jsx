@@ -1,16 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-
-// Pages (we'll create these next)
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 
+import FloatingWhatsApp from "./components/common/FloatingWhatsApp";
+
 function App() {
   return (
     <BrowserRouter>
+
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -22,6 +23,9 @@ function App() {
 
         <Route path="/contact" element={<Contact />} />
       </Routes>
+
+      <FloatingWhatsApp />
+
     </BrowserRouter>
   );
 }
