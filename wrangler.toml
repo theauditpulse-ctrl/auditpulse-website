@@ -1,0 +1,7 @@
+name = "auditpulse-contact-worker"
+main = "workers/contact/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+CONTACT_TO_EMAIL = "theauditpulse@gmail.com"
+RESEND_FROM_EMAIL = "onboarding@resend.dev"

@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -16,11 +15,13 @@ import {
 
 function Contact() {
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "idle", message: "" });
 
   const [form, setForm] = useState({
     name: "",
-    mobile: "",
+    company: "",
     email: "",
+    phone: "",
     service: "",
     message: "",
   });
@@ -35,34 +36,52 @@ function Contact() {
     e.preventDefault();
 
     setLoading(true);
+    setStatus({ type: "idle", message: "" });
 
     try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      const response = await fetch(
+        "https://auditpulse-contact-worker.ashish-batth.workers.dev",
         {
-          name: form.name,
-          mobile: form.mobile,
-          email: form.email,
-          service: form.service,
-          message: form.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            company: form.company,
+            email: form.email,
+            phone: form.phone,
+            service: form.service,
+            message: form.message,
+          }),
+        }
       );
 
-      alert("Thank you! Your enquiry has been sent successfully.");
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Failed to send enquiry.");
+      }
+
+      setStatus({
+        type: "success",
+        message: data.message || "Thank you! Your enquiry has been sent successfully.",
+      });
 
       setForm({
         name: "",
-        mobile: "",
+        company: "",
         email: "",
+        phone: "",
         service: "",
         message: "",
       });
     } catch (err) {
       console.error(err);
-
-      alert("Failed to send enquiry. Please try again.");
+      setStatus({
+        type: "error",
+        message: err.message || "Failed to send enquiry. Please try again.",
+      });
     } finally {
       setLoading(false);
     }
@@ -176,15 +195,28 @@ function Contact() {
                   required
                 />
 
-                <label htmlFor="contact-mobile" className="sr-only">
-                  Mobile Number
+                <label htmlFor="contact-company" className="sr-only">
+                  Company Name
                 </label>
                 <input
-                  id="contact-mobile"
+                  id="contact-company"
                   className="w-full rounded-xl border p-4"
-                  name="mobile"
-                  placeholder="Mobile Number"
-                  value={form.mobile}
+                  name="company"
+                  placeholder="Company Name"
+                  value={form.company}
+                  onChange={handleChange}
+                  required
+                />
+
+                <label htmlFor="contact-phone" className="sr-only">
+                  Phone Number
+                </label>
+                <input
+                  id="contact-phone"
+                  className="w-full rounded-xl border p-4"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={form.phone}
                   onChange={handleChange}
                   required
                 />
@@ -237,6 +269,18 @@ function Contact() {
                   onChange={handleChange}
                   required
                 />
+
+                {status.message ? (
+                  <div
+                    className={`rounded-xl border px-4 py-3 text-sm ${
+                      status.type === "success"
+                        ? "border-green-200 bg-green-50 text-green-700"
+                        : "border-red-200 bg-red-50 text-red-700"
+                    }`}
+                  >
+                    {status.message}
+                  </div>
+                ) : null}
 
                 <button
                   type="submit"
