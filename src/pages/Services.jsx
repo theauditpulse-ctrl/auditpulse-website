@@ -1,99 +1,18 @@
 import { Helmet } from "react-helmet-async";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import {
-  FileText,
-  Receipt,
-  Calculator,
-  Building2,
-  Landmark,
-  Briefcase,
-} from "lucide-react";
-
-const services = [
-  {
-    icon: FileText,
-    title: "Income Tax Return Filing",
-    description:
-      "Accurate income tax return preparation for salaried individuals, professionals and businesses.",
-    points: [
-      "ITR Filing",
-      "Tax Planning",
-      "Capital Gains",
-      "Notice Assistance",
-    ],
-  },
-  {
-    icon: Receipt,
-    title: "GST Services",
-    description:
-      "Complete GST registration, return filing and compliance support.",
-    points: [
-      "GST Registration",
-      "Monthly/Quarterly Returns",
-      "Annual Returns",
-      "GST Advisory",
-    ],
-  },
-  {
-    icon: Calculator,
-    title: "Accounting & Bookkeeping",
-    description:
-      "Reliable bookkeeping and financial reporting for growing businesses.",
-    points: [
-      "Bookkeeping",
-      "Bank Reconciliation",
-      "Financial Statements",
-      "MIS Reports",
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Business Registration",
-    description:
-      "Start your business with the right legal structure.",
-    points: [
-      "Proprietorship",
-      "Partnership",
-      "LLP",
-      "Private Limited Company",
-    ],
-  },
-  {
-    icon: Landmark,
-    title: "ROC Compliance",
-    description:
-      "Stay compliant with statutory ROC requirements.",
-    points: [
-      "Annual Filing",
-      "Director KYC",
-      "DIN Services",
-      "Company Compliance",
-    ],
-  },
-  {
-    icon: Briefcase,
-    title: "Business Advisory",
-    description:
-      "Practical financial guidance to help your business grow.",
-    points: [
-      "Financial Planning",
-      "Cash Flow",
-      "Business Growth",
-      "Compliance Strategy",
-    ],
-  },
-];
+import { services } from "../data/services";
+import { seoDefaults } from "../data/company";
 
 function Services() {
   return (
     <>
       <Helmet>
-        <title>Services | Audit Pulse</title>
+        <title>Services | {seoDefaults.siteName}</title>
 
         <meta
           name="description"
-          content="Explore Audit Pulse's professional accounting, income tax, GST, bookkeeping, ROC compliance, business registration and advisory services across India."
+          content={`Explore ${seoDefaults.siteName}'s professional accounting, income tax, GST, bookkeeping, ROC compliance, business registration and advisory services across India.`}
         />
 
         <meta
@@ -103,22 +22,22 @@ function Services() {
 
         <link
           rel="canonical"
-          href="https://www.theauditpulse.com/services"
+          href={`${seoDefaults.canonicalBaseUrl}/services`}
         />
 
         <meta
           property="og:title"
-          content="Professional Accounting & Tax Services | Audit Pulse"
+          content={`Professional Accounting & Tax Services | ${seoDefaults.siteName}`}
         />
 
         <meta
           property="og:description"
-          content="Comprehensive accounting, taxation and business compliance services tailored for individuals, startups and businesses."
+          content={`Comprehensive accounting, taxation and business compliance services tailored for individuals, startups and businesses.`}
         />
 
         <meta
           property="og:url"
-          content="https://www.theauditpulse.com/services"
+          content={`${seoDefaults.canonicalBaseUrl}/services`}
         />
 
         <meta
@@ -189,7 +108,7 @@ function Services() {
             </h2>
 
             <p className="mt-6 text-lg text-blue-100">
-              Whether you're an individual or a growing business, Audit Pulse is
+              Whether you're an individual or a growing business, {seoDefaults.siteName} is
               here to simplify your accounting, taxation and compliance.
             </p>
 

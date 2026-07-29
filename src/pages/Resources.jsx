@@ -1,86 +1,50 @@
+import { Download } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import Header from "../components/layout/Header";
+
 import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
+import { seoDefaults } from "../data/company";
 import {
-  BookOpen,
-  Receipt,
-  Landmark,
-  Calculator,
-  Briefcase,
-  Download,
-} from "lucide-react";
-
-const categories = [
-  {
-    icon: Receipt,
-    title: "Income Tax",
-    desc: "Guides, tax planning and return filing.",
-  },
-  {
-    icon: Calculator,
-    title: "GST",
-    desc: "Registration, returns and compliance.",
-  },
-  {
-    icon: BookOpen,
-    title: "Accounting",
-    desc: "Bookkeeping and financial reporting.",
-  },
-  {
-    icon: Landmark,
-    title: "Company Law",
-    desc: "ROC and corporate compliance.",
-  },
-  {
-    icon: Briefcase,
-    title: "Business Advisory",
-    desc: "Practical growth and finance advice.",
-  },
-];
-
-const articles = [
-  "Income Tax Return Filing Guide",
-  "GST Registration Process",
-  "Tax Saving Checklist",
-  "ROC Annual Filing Guide",
-  "Startup Compliance Checklist",
-  "Accounting Basics for Small Businesses",
-];
+  resourceCategories,
+  featuredArticles,
+  resourcesIntro,
+  downloadCenter,
+} from "../data/resources";
 
 function Resources() {
   return (
     <>
       <Helmet>
-        <title>Resources | Tax, GST & Accounting Guides | Audit Pulse</title>
+        <title>Resources | Tax, GST & Accounting Guides | {seoDefaults.siteName}</title>
 
         <meta
           name="description"
-          content="Explore Audit Pulse's knowledge centre featuring tax guides, GST resources, accounting insights, ROC compliance articles and practical business advisory content."
+          content={`Explore ${seoDefaults.siteName}'s knowledge centre featuring tax guides, GST resources, accounting insights, ROC compliance articles and practical business advisory content.`}
         />
 
         <meta
           name="keywords"
-          content="Income Tax Guide, GST Guide, Accounting Resources, ROC Compliance, Business Advisory, Tax Articles, Audit Pulse"
+          content={`Income Tax Guide, GST Guide, Accounting Resources, ROC Compliance, Business Advisory, Tax Articles, ${seoDefaults.siteName}`}
         />
 
         <link
           rel="canonical"
-          href="https://www.theauditpulse.com/resources"
+          href={`${seoDefaults.canonicalBaseUrl}/resources`}
         />
 
         <meta
           property="og:title"
-          content="Resources & Insights | Audit Pulse"
+          content={`Resources & Insights | ${seoDefaults.siteName}`}
         />
 
         <meta
           property="og:description"
-          content="Stay informed with practical accounting, taxation, GST and compliance resources from Audit Pulse."
+          content={`Stay informed with practical accounting, taxation, GST and compliance resources from ${seoDefaults.siteName}.`}
         />
 
         <meta
           property="og:url"
-          content="https://www.theauditpulse.com/resources"
+          content={`${seoDefaults.canonicalBaseUrl}/resources`}
         />
 
         <meta property="og:type" content="website" />
@@ -96,12 +60,11 @@ function Resources() {
             </span>
 
             <h1 className="mt-4 text-5xl font-bold text-[#0F3D91] lg:text-6xl">
-              Resources & Insights
+              {resourcesIntro.title}
             </h1>
 
             <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600">
-              Useful guides, compliance updates and practical articles to help
-              individuals and businesses stay informed.
+              {resourcesIntro.description}
             </p>
           </div>
         </section>
@@ -113,7 +76,7 @@ function Resources() {
             </h2>
 
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {categories.map((category) => {
+              {resourceCategories.map((category) => {
                 const Icon = category.icon;
 
                 return (
@@ -142,7 +105,7 @@ function Resources() {
             </h2>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {articles.map((article) => (
+              {featuredArticles.map((article) => (
                 <div
                   key={article}
                   className="rounded-xl bg-white p-6 shadow transition hover:shadow-lg"
@@ -164,19 +127,18 @@ function Resources() {
             <Download className="mx-auto text-[#FF8C00]" size={48} />
 
             <h2 className="mt-6 text-4xl font-bold text-[#0F3D91]">
-              Download Centre
+              {downloadCenter.title}
             </h2>
 
             <p className="mt-4 text-gray-600">
-              Tax checklists, compliance calendars and useful templates will be
-              available here soon.
+              {downloadCenter.description}
             </p>
 
             <a
               href="/contact"
               className="mt-8 inline-block rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white transition hover:bg-blue-900"
             >
-              Request Professional Assistance
+              {downloadCenter.ctaLabel}
             </a>
           </div>
         </section>

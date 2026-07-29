@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 import Header from "../components/layout/Header";
+import { seoDefaults } from "../data/company";
 import Footer from "../components/layout/Footer";
 
 import Hero from "../components/home/Hero";
@@ -17,37 +18,37 @@ function Home() {
     <>
       <Helmet>
         <title>
-          Audit Pulse | Accounting, Taxation & Compliance Services in India
+          {seoDefaults.defaultTitle}
         </title>
 
         <meta
           name="description"
-          content="Audit Pulse provides professional accounting, taxation, GST, bookkeeping, ROC compliance and business advisory services for individuals, startups and businesses across India."
+          content={seoDefaults.defaultDescription}
         />
 
         <meta
           name="keywords"
-          content="Accounting Services, Income Tax Filing, GST Registration, Bookkeeping, ROC Compliance, Business Registration, Chartered Accountant Chennai"
+          content={seoDefaults.defaultKeywords}
         />
 
         <link
           rel="canonical"
-          href="https://www.theauditpulse.com/"
+          href={`${seoDefaults.canonicalBaseUrl}/`}
         />
 
         <meta
           property="og:title"
-          content="Audit Pulse | Accounting, Taxation & Compliance Services"
+          content={`${seoDefaults.siteName} | Accounting, Taxation & Compliance Services`}
         />
 
         <meta
           property="og:description"
-          content="Professional accounting, taxation, GST, bookkeeping and compliance services across India."
+          content={seoDefaults.defaultDescription}
         />
 
         <meta
           property="og:url"
-          content="https://www.theauditpulse.com/"
+          content={`${seoDefaults.canonicalBaseUrl}/`}
         />
 
         <meta

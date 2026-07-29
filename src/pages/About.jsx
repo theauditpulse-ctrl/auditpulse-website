@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Header from "../components/layout/Header";
+import { seoDefaults } from "../data/company";
 import Footer from "../components/layout/Footer";
 import { ShieldCheck, Target, Eye } from "lucide-react";
 import { motion } from "framer-motion";
@@ -8,11 +9,11 @@ function About() {
   return (
     <>
       <Helmet>
-        <title>About Audit Pulse | Trusted Accounting & Tax Experts</title>
+        <title>About {seoDefaults.siteName} | Trusted Accounting & Tax Experts</title>
 
         <meta
           name="description"
-          content="Learn about Audit Pulse, our mission, vision and commitment to delivering reliable accounting, taxation, GST and business compliance services across India."
+          content={`Learn about ${seoDefaults.siteName}, our mission, vision and commitment to delivering reliable accounting, taxation, GST and business compliance services across India.`}
         />
 
         <meta
@@ -22,22 +23,22 @@ function About() {
 
         <link
           rel="canonical"
-          href="https://www.theauditpulse.com/about"
+          href={`${seoDefaults.canonicalBaseUrl}/about`}
         />
 
         <meta
           property="og:title"
-          content="About Audit Pulse | Trusted Accounting & Tax Experts"
+          content={`About ${seoDefaults.siteName} | Trusted Accounting & Tax Experts`}
         />
 
         <meta
           property="og:description"
-          content="Discover Audit Pulse's mission, values and expertise in accounting, taxation and business compliance."
+          content={`Discover ${seoDefaults.siteName}'s mission, values and expertise in accounting, taxation and business compliance.`}
         />
 
         <meta
           property="og:url"
-          content="https://www.theauditpulse.com/about"
+          content={`${seoDefaults.canonicalBaseUrl}/about`}
         />
 
         <meta
@@ -54,7 +55,7 @@ function About() {
         <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
           <div className="mx-auto max-w-7xl px-6 text-center">
             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
-              About Audit Pulse
+              About {seoDefaults.siteName}
             </span>
 
             <h1 className="mt-4 text-5xl font-bold text-[#0F3D91] lg:text-6xl">
@@ -64,7 +65,7 @@ function About() {
             </h1>
 
             <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600">
-              Audit Pulse is a modern accounting, taxation and compliance
+              {seoDefaults.siteName} is a modern accounting, taxation and compliance
               practice committed to helping individuals, professionals and
               businesses simplify financial management through reliable,
               transparent and technology-driven solutions.
@@ -85,7 +86,7 @@ function About() {
               </h2>
 
               <p className="mt-6 leading-8 text-gray-600">
-                Audit Pulse was established to make accounting, taxation and
+                {seoDefaults.siteName} was established to make accounting, taxation and
                 compliance simple, transparent and dependable.
               </p>
 
@@ -103,7 +104,7 @@ function About() {
 
             <div className="rounded-3xl bg-[#0F3D91] p-10 text-white shadow-2xl">
               <h3 className="text-3xl font-bold">
-                Why Clients Choose Audit Pulse
+                Why Clients Choose {seoDefaults.siteName}
               </h3>
 
               <div className="mt-8 space-y-5">
@@ -170,7 +171,7 @@ function About() {
               </span>
 
               <h2 className="mt-4 text-4xl font-bold text-[#0F3D91]">
-                What Defines Audit Pulse
+                What Defines {seoDefaults.siteName}
               </h2>
             </div>
 

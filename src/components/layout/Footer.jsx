@@ -7,22 +7,11 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { company, navigationItems, servicesList } from "../../data/company";
 
 function Footer() {
-  const services = [
-    "Income Tax Filing",
-    "GST Services",
-    "Accounting",
-    "Business Registration",
-  ];
-
-  const quickLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Resources", path: "/resources" },
-    { name: "Contact", path: "/contact" },
-  ];
+  const services = servicesList;
+  const quickLinks = navigationItems;
 
   return (
     <footer className="bg-[#0B1220] text-white">
@@ -33,21 +22,19 @@ function Footer() {
           {/* Brand */}
           <div>
             <h2 className="text-3xl font-bold text-white">
-              Audit Pulse
+              {company.name}
             </h2>
 
             <p className="mt-4 text-orange-400 font-medium">
-              Compliance Made Simple. Growth Made Possible.
+              {company.tagline}
             </p>
 
             <p className="mt-5 leading-7 text-gray-400">
-              Professional accounting, taxation, GST, bookkeeping and business
-              compliance services helping individuals, startups and businesses
-              across India grow with confidence.
+              {company.description}
             </p>
 
             <p className="mt-5 text-sm text-gray-500">
-              Serving clients across India.
+              {company.serviceArea}
             </p>
           </div>
 
@@ -104,7 +91,7 @@ function Footer() {
                 className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
               >
                 <Phone size={20} className="mt-1 text-[#FF8C00]" />
-                <span>+91 90259 73127</span>
+                <span>{company.phone}</span>
               </a>
 
               <a
@@ -112,33 +99,33 @@ function Footer() {
                 className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
               >
                 <Mail size={20} className="mt-1 text-[#FF8C00]" />
-                <span>info@theauditpulse.com</span>
+                <span>{company.email}</span>
               </a>
 
               <div className="flex items-start gap-3">
                 <Clock3 size={20} className="mt-1 text-[#FF8C00]" />
                 <div className="text-gray-300">
-                  Mon – Fri : 9 AM – 6 PM
+                  {company.hours.weekdays}
                   <br />
-                  Sat : 9 AM – 2 PM
+                  {company.hours.saturday}
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <MapPin size={20} className="mt-1 text-[#FF8C00]" />
                 <span className="text-gray-300">
-                  Perambur, Chennai – 600011
+                  {company.location}
                 </span>
               </div>
 
               <a
                 href="https://www.theauditpulse.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
               >
                 <Globe size={20} className="mt-1 text-[#FF8C00]" />
-                <span>www.theauditpulse.com</span>
+                <span>{company.website.replace("https://", "")}</span>
               </a>
 
             </div>
@@ -147,7 +134,7 @@ function Footer() {
         </div>
 
         <div className="mt-14 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
-          © {new Date().getFullYear()} Audit Pulse. All Rights Reserved.
+          © {new Date().getFullYear()} {company.name}. All Rights Reserved.
         </div>
 
       </div>

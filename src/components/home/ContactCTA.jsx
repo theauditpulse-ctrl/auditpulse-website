@@ -46,7 +46,7 @@ function ContactCTA() {
             <a
               href="https://wa.me/919025973127"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-semibold text-[#0F3D91] shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               <MessageCircle size={20} />

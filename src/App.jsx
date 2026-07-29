@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import FloatingWhatsApp from "./components/common/FloatingWhatsApp";
-import PageLoader from "./components/common/PageLoader";
+import Loading from "./components/common/Loading";
 import ScrollToTop from "./components/common/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
 

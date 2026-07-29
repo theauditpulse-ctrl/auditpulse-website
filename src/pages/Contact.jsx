@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import { company, seoDefaults } from "../data/company";
 
 import {
   Phone,
@@ -70,36 +71,36 @@ function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Audit Pulse | Get Expert Accounting & Tax Assistance</title>
+        <title>Contact {seoDefaults.siteName} | Get Expert Accounting & Tax Assistance</title>
 
         <meta
           name="description"
-          content="Contact Audit Pulse for professional accounting, income tax, GST, bookkeeping, ROC compliance and business advisory services. Based in Chennai, serving clients across India."
+          content={`Contact ${seoDefaults.siteName} for professional accounting, income tax, GST, bookkeeping, ROC compliance and business advisory services. Based in Chennai, serving clients across India.`}
         />
 
         <meta
           name="keywords"
-          content="Contact Audit Pulse, Chartered Accountant Chennai, GST Consultant, Income Tax Filing, Accounting Services, Bookkeeping, ROC Compliance"
+          content={`Contact ${seoDefaults.siteName}, Chartered Accountant Chennai, GST Consultant, Income Tax Filing, Accounting Services, Bookkeeping, ROC Compliance`}
         />
 
         <link
           rel="canonical"
-          href="https://www.theauditpulse.com/contact"
+          href={`${seoDefaults.canonicalBaseUrl}/contact`}
         />
 
         <meta
           property="og:title"
-          content="Contact Audit Pulse"
+          content={`Contact ${seoDefaults.siteName}`}
         />
 
         <meta
           property="og:description"
-          content="Get in touch with Audit Pulse for accounting, taxation, GST and compliance services."
+          content={`Get in touch with ${seoDefaults.siteName} for accounting, taxation, GST and compliance services.`}
         />
 
         <meta
           property="og:url"
-          content="https://www.theauditpulse.com/contact"
+          content={`${seoDefaults.canonicalBaseUrl}/contact`}
         />
 
         <meta property="og:type" content="website" />
@@ -111,7 +112,7 @@ function Contact() {
         <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
           <div className="mx-auto max-w-7xl px-6 text-center">
             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
-              Contact Audit Pulse
+              Contact {company.name}
             </span>
 
             <h1 className="mt-4 text-5xl font-bold text-[#0F3D91]">
@@ -135,34 +136,38 @@ function Contact() {
               <div className="mt-10 space-y-6">
                 <div className="flex gap-3">
                   <Phone />
-                  <p>+91 90259 73127</p>
+                  <p>{company.phone}</p>
                 </div>
 
                 <div className="flex gap-3">
                   <MessageCircle />
-                  <p>WhatsApp: +91 90259 73127</p>
+                  <p>WhatsApp: {company.phone}</p>
                 </div>
 
                 <div className="flex gap-3">
                   <Mail />
-                  <p>theauditpulse@gmail.com</p>
+                  <p>{company.email}</p>
                 </div>
 
                 <div className="flex gap-3">
                   <MapPin />
-                  <p>Chennai, Tamil Nadu</p>
+                  <p>{company.location}</p>
                 </div>
 
                 <div className="flex gap-3">
                   <Clock3 />
-                  <p>Mon–Fri 9:00 AM – 6:00 PM</p>
+                  <p>{company.hours.weekdays.replace(" :", " ")}</p>
                 </div>
               </div>
             </div>
 
             <div className="rounded-2xl bg-slate-50 p-8 shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-5">
+                <label htmlFor="contact-name" className="sr-only">
+                  Full Name
+                </label>
                 <input
+                  id="contact-name"
                   className="w-full rounded-xl border p-4"
                   name="name"
                   placeholder="Full Name"
@@ -171,7 +176,11 @@ function Contact() {
                   required
                 />
 
+                <label htmlFor="contact-mobile" className="sr-only">
+                  Mobile Number
+                </label>
                 <input
+                  id="contact-mobile"
                   className="w-full rounded-xl border p-4"
                   name="mobile"
                   placeholder="Mobile Number"
@@ -180,7 +189,11 @@ function Contact() {
                   required
                 />
 
+                <label htmlFor="contact-email" className="sr-only">
+                  Email Address
+                </label>
                 <input
+                  id="contact-email"
                   className="w-full rounded-xl border p-4"
                   type="email"
                   name="email"
@@ -190,7 +203,11 @@ function Contact() {
                   required
                 />
 
+                <label htmlFor="contact-service" className="sr-only">
+                  Select a Service
+                </label>
                 <select
+                  id="contact-service"
                   className="w-full rounded-xl border p-4"
                   name="service"
                   value={form.service}
@@ -207,7 +224,11 @@ function Contact() {
                   <option>Other</option>
                 </select>
 
+                <label htmlFor="contact-message" className="sr-only">
+                  Message
+                </label>
                 <textarea
+                  id="contact-message"
                   className="w-full rounded-xl border p-4"
                   rows="5"
                   name="message"

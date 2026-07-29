@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+
 import logo from "../../assets/logo/logo-navbar.webp";
+import { navigationItems } from "../../data/company";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,14 +18,6 @@ function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Resources", path: "/resources" },
-    { name: "Contact", path: "/contact" },
-  ];
 
   return (
     <header
@@ -56,7 +50,7 @@ function Header() {
         {/* Desktop Navigation */}
 
         <nav className="hidden items-center gap-10 lg:flex">
-          {navItems.map((item) => (
+          {navigationItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
@@ -77,7 +71,7 @@ function Header() {
 
         <NavLink
           to="/contact"
-          className="hidden rounded-xl bg-[#FF8C00] px-7 py-3.5 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E67E00] lg:block"
+          className="hidden rounded-xl bg-[#FF8C00] px-7 py-3.5 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E67E00] focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:block"
         >
           Get Free Consultation
         </NavLink>
@@ -85,8 +79,12 @@ function Header() {
         {/* Mobile Button */}
 
         <button
+          type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="rounded-lg p-2 lg:hidden"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          className="rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:hidden"
         >
           {menuOpen ? (
             <X size={30} className="text-[#0F3D91]" />
@@ -99,16 +97,16 @@ function Header() {
       {/* Mobile Menu */}
 
       {menuOpen && (
-        <div className="border-t border-gray-200 bg-white lg:hidden">
-          <nav className="flex flex-col px-6 py-4">
+        <div id="mobile-navigation" className="border-t border-gray-200 bg-white lg:hidden">
+          <nav className="flex flex-col px-6 py-4" aria-label="Mobile navigation">
 
-            {navItems.map((item) => (
+            {navigationItems.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.path}
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
-                  `rounded-lg px-4 py-3 text-base font-medium transition ${
+                  `rounded-lg px-4 py-3 text-base font-medium transition focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 ${
                     isActive
                       ? "bg-blue-50 text-[#0F3D91]"
                       : "text-gray-700 hover:bg-gray-100"
@@ -122,7 +120,7 @@ function Header() {
             <NavLink
               to="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 rounded-xl bg-[#FF8C00] px-6 py-3 text-center font-semibold text-white"
+              className="mt-4 rounded-xl bg-[#FF8C00] px-6 py-3 text-center font-semibold text-white focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2"
             >
               Get Free Consultation
             </NavLink>
