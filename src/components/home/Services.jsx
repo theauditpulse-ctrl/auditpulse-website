@@ -52,7 +52,7 @@ function Services() {
   return (
     <section className="bg-[#F8FAFC] py-24">
       <div className="mx-auto max-w-7xl px-6">
-
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,18 +65,19 @@ function Services() {
           </span>
 
           <h2 className="mt-4 text-4xl font-bold text-[#0F3D91] lg:text-5xl">
-            Professional Financial Solutions Under One Roof
+            Comprehensive Financial Services for Every Stage of Your Business
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            From taxation and accounting to registrations and compliance,
-            Audit Pulse provides dependable financial solutions designed to
-            support individuals, professionals and growing businesses.
+            From tax filing and accounting to business registration and
+            regulatory compliance, Audit Pulse delivers reliable financial
+            solutions that help individuals and businesses stay compliant,
+            organised and ready for growth.
           </p>
         </motion.div>
 
+        {/* Service Cards */}
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -87,7 +88,7 @@ function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="group rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="group rounded-2xl border border-transparent bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
               >
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-[#0F3D91] transition-all duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
                   <Icon size={30} />
@@ -100,19 +101,27 @@ function Services() {
                 <p className="mt-4 leading-7 text-gray-600">
                   {service.description}
                 </p>
+
+                <div className="mt-6 flex items-center gap-2 font-medium text-[#FF8C00] opacity-0 transition duration-300 group-hover:opacity-100">
+                  <span>Learn More</span>
+                  <ArrowRight size={18} />
+                </div>
               </motion.div>
             );
           })}
-
         </div>
 
+        {/* CTA */}
         <div className="mt-16 text-center">
+          <p className="mb-5 text-gray-600">
+            Need a solution tailored to your requirements?
+          </p>
+
           <button className="inline-flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-blue-900">
-            Explore All Services
+            Explore Our Services
             <ArrowRight size={20} />
           </button>
         </div>
-
       </div>
     </section>
   );

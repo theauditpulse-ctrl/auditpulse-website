@@ -23,22 +23,31 @@ function ContactCTA() {
           </span>
 
           <h2 className="mt-4 text-4xl font-bold leading-tight lg:text-5xl">
-            Ready to Simplify Your Accounting & Compliance?
+            Ready to Simplify Your Tax, Accounting & Business Compliance?
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-blue-100">
-            Whether you're an individual, professional or business owner,
-            Audit Pulse is here to provide reliable accounting, taxation and
-            compliance support with a modern and transparent approach.
+            Whether you're an individual, freelancer, startup or growing
+            business, Audit Pulse is here to deliver reliable accounting,
+            taxation and compliance solutions with transparency, accuracy and
+            timely service.
           </p>
 
+          {/* Trust Line */}
+          <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm font-medium text-orange-200">
+            <span>✔ Transparent Advice</span>
+            <span>✔ Timely Compliance</span>
+            <span>✔ Personalized Support</span>
+          </div>
+
+          {/* CTA Buttons */}
           <div className="mt-12 flex flex-wrap justify-center gap-5">
 
             <a
               href="https://wa.me/919025973127"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-semibold text-[#0F3D91] shadow-xl transition duration-300 hover:-translate-y-1"
+              className="inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-semibold text-[#0F3D91] shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               <MessageCircle size={20} />
               Chat on WhatsApp
@@ -53,6 +62,12 @@ function ContactCTA() {
             </a>
 
           </div>
+
+          {/* Closing Line */}
+          <p className="mt-8 text-sm text-blue-200">
+            We're committed to making your financial journey simple, compliant
+            and stress-free.
+          </p>
 
         </motion.div>
 

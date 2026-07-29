@@ -6,6 +6,7 @@ import {
   Users,
   Building2,
   Briefcase,
+  ArrowRight,
 } from "lucide-react";
 
 function WhoWeHelp() {
@@ -13,39 +14,45 @@ function WhoWeHelp() {
     {
       icon: User,
       title: "Individuals",
-      description: "Income tax filing and personal financial compliance made simple.",
+      description:
+        "Income tax filing, tax planning and personal financial compliance made simple.",
     },
     {
       icon: Laptop,
       title: "Freelancers",
-      description: "Tax planning, GST and accounting support for independent professionals.",
+      description:
+        "GST, income tax and accounting support designed for independent professionals.",
     },
     {
       icon: Store,
       title: "Proprietorships",
-      description: "Complete bookkeeping, GST compliance and business advisory services.",
+      description:
+        "Complete bookkeeping, GST compliance and business advisory for growing businesses.",
     },
     {
       icon: Users,
       title: "Partnership Firms",
-      description: "Accounting, taxation and statutory compliance for partnership businesses.",
+      description:
+        "Reliable accounting, taxation and statutory compliance for partnership businesses.",
     },
     {
       icon: Building2,
       title: "Private Limited Companies",
-      description: "End-to-end compliance, ROC filings and financial reporting solutions.",
+      description:
+        "End-to-end ROC compliance, annual filings and financial reporting solutions.",
     },
     {
       icon: Briefcase,
       title: "One Person Companies (OPC)",
-      description: "Business registration, annual compliance and taxation support.",
+      description:
+        "Company registration, annual compliance and taxation support under one roof.",
     },
   ];
 
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
-
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,16 +65,18 @@ function WhoWeHelp() {
           </span>
 
           <h2 className="mt-4 text-4xl font-bold text-[#0F3D91] lg:text-5xl">
-            Serving Individuals & Businesses Across India
+            Tailored Financial Solutions for Every Stage of Your Journey
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Whether you're an individual, a startup or an established business,
-            Audit Pulse provides reliable accounting, taxation and compliance
-            services tailored to your needs.
+            Whether you're an individual, a freelancer, a startup or an
+            established company, Audit Pulse delivers personalised accounting,
+            taxation and compliance services to help you stay organised,
+            compliant and ready for growth.
           </p>
         </motion.div>
 
+        {/* Cards */}
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {clients.map((client, index) => {
             const Icon = client.icon;
@@ -79,7 +88,7 @@ function WhoWeHelp() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
               >
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-[#0F3D91] transition-all duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
                   <Icon size={30} />
@@ -92,11 +101,15 @@ function WhoWeHelp() {
                 <p className="mt-4 leading-7 text-gray-600">
                   {client.description}
                 </p>
+
+                <div className="mt-6 flex items-center gap-2 font-medium text-[#FF8C00] opacity-0 transition duration-300 group-hover:opacity-100">
+                  <span>Ideal For You</span>
+                  <ArrowRight size={18} />
+                </div>
               </motion.div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { ShieldCheck, Target, Eye } from "lucide-react";
@@ -6,6 +7,45 @@ import { motion } from "framer-motion";
 function About() {
   return (
     <>
+      <Helmet>
+        <title>About Audit Pulse | Trusted Accounting & Tax Experts</title>
+
+        <meta
+          name="description"
+          content="Learn about Audit Pulse, our mission, vision and commitment to delivering reliable accounting, taxation, GST and business compliance services across India."
+        />
+
+        <meta
+          name="keywords"
+          content="About Audit Pulse, Chartered Accountant Chennai, Accounting Firm India, Tax Consultant Chennai, Business Compliance"
+        />
+
+        <link
+          rel="canonical"
+          href="https://www.theauditpulse.com/about"
+        />
+
+        <meta
+          property="og:title"
+          content="About Audit Pulse | Trusted Accounting & Tax Experts"
+        />
+
+        <meta
+          property="og:description"
+          content="Discover Audit Pulse's mission, values and expertise in accounting, taxation and business compliance."
+        />
+
+        <meta
+          property="og:url"
+          content="https://www.theauditpulse.com/about"
+        />
+
+        <meta
+          property="og:type"
+          content="website"
+        />
+      </Helmet>
+
       <Header />
 
       <main>
@@ -62,7 +102,9 @@ function About() {
             </div>
 
             <div className="rounded-3xl bg-[#0F3D91] p-10 text-white shadow-2xl">
-              <h3 className="text-3xl font-bold">Why Clients Choose Audit Pulse</h3>
+              <h3 className="text-3xl font-bold">
+                Why Clients Choose Audit Pulse
+              </h3>
 
               <div className="mt-8 space-y-5">
                 <p>✓ Accurate financial reporting</p>
@@ -85,9 +127,11 @@ function About() {
               className="rounded-2xl bg-white p-10 shadow-xl"
             >
               <Target className="text-[#0F3D91]" size={42} />
+
               <h2 className="mt-6 text-3xl font-bold text-[#0F3D91]">
                 Our Mission
               </h2>
+
               <p className="mt-5 leading-8 text-gray-600">
                 To simplify accounting, taxation and compliance through
                 transparent communication, professional expertise and modern
@@ -103,9 +147,11 @@ function About() {
               className="rounded-2xl bg-white p-10 shadow-xl"
             >
               <Eye className="text-[#FF8C00]" size={42} />
+
               <h2 className="mt-6 text-3xl font-bold text-[#0F3D91]">
                 Our Vision
               </h2>
+
               <p className="mt-5 leading-8 text-gray-600">
                 To become a trusted accounting and taxation partner for
                 businesses across India through dependable, modern services.
@@ -122,6 +168,7 @@ function About() {
               <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
                 Core Values
               </span>
+
               <h2 className="mt-4 text-4xl font-bold text-[#0F3D91]">
                 What Defines Audit Pulse
               </h2>
@@ -129,11 +176,16 @@ function About() {
 
             <div className="mt-16 grid gap-8 md:grid-cols-3">
               {["Transparency", "Accuracy", "Reliability"].map((item) => (
-                <div key={item} className="rounded-2xl bg-white p-8 shadow-lg">
+                <div
+                  key={item}
+                  className="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:border hover:border-[#FF8C00]"
+                >
                   <ShieldCheck className="text-[#0F3D91]" size={36} />
+
                   <h3 className="mt-6 text-2xl font-semibold text-[#0F3D91]">
                     {item}
                   </h3>
+
                   <p className="mt-4 leading-7 text-gray-600">
                     Every service we provide is guided by integrity,
                     professionalism and long-term client relationships.

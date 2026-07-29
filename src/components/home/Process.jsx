@@ -13,28 +13,28 @@ function Process() {
       icon: PhoneCall,
       title: "Connect",
       description:
-        "Reach out through phone, WhatsApp or email for an initial discussion.",
+        "Reach out via phone, WhatsApp or email to discuss your accounting and compliance requirements.",
     },
     {
       number: "02",
       icon: ClipboardList,
       title: "Consult",
       description:
-        "We understand your requirements and recommend the right compliance solution.",
+        "We understand your needs and recommend the most suitable financial and compliance solutions.",
     },
     {
       number: "03",
       icon: CheckCircle2,
       title: "Execute",
       description:
-        "Our team completes your work accurately, professionally and on time.",
+        "Our professionals complete your work accurately, efficiently and within the agreed timelines.",
     },
     {
       number: "04",
       icon: Handshake,
       title: "Support",
       description:
-        "We continue supporting your business with ongoing compliance and advisory services.",
+        "We continue to support you with ongoing compliance, advisory and business guidance whenever you need us.",
     },
   ];
 
@@ -42,6 +42,7 @@ function Process() {
     <section className="bg-[#F8FAFC] py-24">
       <div className="mx-auto max-w-7xl px-6">
 
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,11 +59,13 @@ function Process() {
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            We make accounting and compliance straightforward through a clear,
-            transparent and efficient four-step process.
+            Working with Audit Pulse is simple. Our streamlined four-step
+            process ensures your accounting, taxation and compliance needs are
+            handled professionally from start to finish.
           </p>
         </motion.div>
 
+        {/* Process Cards */}
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => {
             const Icon = step.icon;
@@ -74,7 +77,7 @@ function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="group rounded-2xl bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="group rounded-2xl border border-transparent bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
               >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-[#0F3D91] transition-all duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
                   <Icon size={30} />

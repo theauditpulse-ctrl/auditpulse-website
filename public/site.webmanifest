@@ -1,0 +1,21 @@
+{
+  "name": "Audit Pulse",
+  "short_name": "Audit Pulse",
+  "description": "Accounting, Taxation & Compliance Services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0F3D91",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

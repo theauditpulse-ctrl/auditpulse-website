@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "../../assets/logo/logo.jpg";
+import logo from "../../assets/logo/logo-navbar.webp";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -15,44 +26,44 @@ function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 ${
+        scrolled
+          ? "shadow-md border-b border-gray-200"
+          : "border-b border-gray-100"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
 
         {/* Logo */}
 
         <NavLink
           to="/"
-          className="flex items-center gap-3"
+          className="flex items-center gap-4"
           onClick={() => setMenuOpen(false)}
         >
           <img
             src={logo}
             alt="Audit Pulse"
-            className="h-14 w-auto rounded-lg"
+            width={1065}
+            height={399}
+            loading="eager"
+            decoding="async"
+            className="h-16 w-auto"
           />
-
-          <div>
-            <h2 className="text-2xl font-bold text-[#0F3D91]">
-              Audit Pulse
-            </h2>
-
-            <p className="text-xs text-gray-500">
-              Accounting • Taxation • Compliance
-            </p>
-          </div>
         </NavLink>
 
         {/* Desktop Navigation */}
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-10 lg:flex">
           {navItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `font-medium transition ${
+                `relative pb-1 font-medium transition duration-300 ${
                   isActive
-                    ? "text-[#0F3D91]"
+                    ? "text-[#0F3D91] after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-full after:rounded-full after:bg-[#FF8C00]"
                     : "text-gray-600 hover:text-[#0F3D91]"
                 }`
               }
@@ -62,30 +73,30 @@ function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
+        {/* CTA */}
 
         <NavLink
           to="/contact"
-          className="hidden rounded-xl bg-[#FF8C00] px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E67E00] lg:block"
+          className="hidden rounded-xl bg-[#FF8C00] px-7 py-3.5 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E67E00] lg:block"
         >
-          Book Consultation
+          Get Free Consultation
         </NavLink>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="rounded-lg p-2 lg:hidden"
         >
           {menuOpen ? (
-            <X size={28} className="text-[#0F3D91]" />
+            <X size={30} className="text-[#0F3D91]" />
           ) : (
-            <Menu size={28} className="text-[#0F3D91]" />
+            <Menu size={30} className="text-[#0F3D91]" />
           )}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
 
       {menuOpen && (
         <div className="border-t border-gray-200 bg-white lg:hidden">
@@ -113,7 +124,7 @@ function Header() {
               onClick={() => setMenuOpen(false)}
               className="mt-4 rounded-xl bg-[#FF8C00] px-6 py-3 text-center font-semibold text-white"
             >
-              Book Consultation
+              Get Free Consultation
             </NavLink>
 
           </nav>

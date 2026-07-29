@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, MessageCircle } from "lucide-react";
-import HeroIllustration from "../../assets/images/hero-illustration.svg.png";
+import HeroIllustration from "../../assets/images/hero-illustration.webp";
 
 function Hero() {
   return (
@@ -63,6 +63,10 @@ function Hero() {
           <img
             src={HeroIllustration}
             alt="Audit Pulse Illustration"
+            width={1536}
+            height={1024}
+            loading="eager"
+            decoding="async"
             className="w-full drop-shadow-2xl"
           />
         </motion.div>
