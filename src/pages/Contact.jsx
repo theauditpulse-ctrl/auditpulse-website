@@ -16,6 +16,9 @@ import {
 function Contact() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: "idle", message: "" });
+  const contactWorkerUrl =
+    import.meta.env.VITE_CONTACT_WORKER_URL ||
+    "https://auditpulse-contact-worker.ashish-batth.workers.dev";
 
   const [form, setForm] = useState({
     name: "",
@@ -39,25 +42,31 @@ function Contact() {
     setStatus({ type: "idle", message: "" });
 
     try {
-      const response = await fetch(
-        "https://auditpulse-contact-worker.ashish-batth.workers.dev",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: form.name,
-            company: form.company,
-            email: form.email,
-            phone: form.phone,
-            service: form.service,
-            message: form.message,
-          }),
-        }
-      );
+      const payload = {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        service: form.service,
+        message: form.message,
+      };
 
-      const data = await response.json();
+      const response = await fetch(contactWorkerUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let data;
+
+      try {
+        data = await response.json();
+      } catch {
+        data = { success: false, message: "The contact service returned an unexpected response." };
+      }
 
       if (!response.ok || !data.success) {
         throw new Error(data.message || "Failed to send enquiry.");
