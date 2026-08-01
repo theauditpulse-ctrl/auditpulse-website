@@ -19,8 +19,7 @@ import {
 function Contact() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: "idle", message: "" });
-  const contactWorkerUrl =
-    import.meta.env.VITE_CONTACT_WORKER_URL || "https://auditpulse-contact-worker.theauditpulse.workers.dev/api/contact";
+  const contactEndpointUrl = "/api/contact";
 
   const [form, setForm] = useState({
     name: "",
@@ -68,7 +67,7 @@ function Contact() {
         message: form.message.trim(),
       };
 
-      const response = await fetch(contactWorkerUrl, {
+      const response = await fetch(contactEndpointUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

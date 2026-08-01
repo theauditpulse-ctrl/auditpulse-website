@@ -1,10 +1,2 @@
 name = "auditpulse-website"
-main = "workers/contact/index.js"
 compatibility_date = "2025-01-01"
-
-[assets]
-directory = "./dist"
-
-[vars]
-CONTACT_TO_EMAIL = "theauditpulse@gmail.com"
-RESEND_FROM_EMAIL = "onboarding@resend.dev"
