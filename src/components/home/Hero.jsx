@@ -38,15 +38,23 @@ function Hero() {
 
           <div className="mt-10 flex flex-wrap gap-5">
 
-            <button className="flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-xl transition duration-300 hover:-translate-y-1 hover:bg-blue-900">
+            <a
+              href="/contact"
+              className="flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-xl transition duration-300 hover:-translate-y-1 hover:bg-blue-900"
+            >
               <Calendar size={20} />
               Book Consultation
-            </button>
+            </a>
 
-            <button className="flex items-center gap-3 rounded-xl border-2 border-[#0F3D91] px-8 py-4 font-semibold text-[#0F3D91] transition duration-300 hover:bg-[#0F3D91] hover:text-white">
+            <a
+              href="https://wa.me/919025973127"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-xl border-2 border-[#0F3D91] px-8 py-4 font-semibold text-[#0F3D91] transition duration-300 hover:bg-[#0F3D91] hover:text-white"
+            >
               <MessageCircle size={20} />
               Chat on WhatsApp
-            </button>
+            </a>
 
           </div>
 

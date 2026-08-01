@@ -5,6 +5,9 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { company, seoDefaults } from "../data/company";
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^\+?[0-9\s()-]{7,15}$/;
+
 import {
   Phone,
   Mail,
@@ -16,9 +19,7 @@ import {
 function Contact() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: "idle", message: "" });
-  const contactWorkerUrl =
-    import.meta.env.VITE_CONTACT_WORKER_URL ||
-    "https://auditpulse-contact-worker.ashish-batth.workers.dev";
+  const contactWorkerUrl = import.meta.env.VITE_CONTACT_WORKER_URL || "/api/contact";
 
   const [form, setForm] = useState({
     name: "",
@@ -38,17 +39,32 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!emailPattern.test(form.email.trim())) {
+      setStatus({ type: "error", message: "Please enter a valid email address." });
+      return;
+    }
+
+    if (!phonePattern.test(form.phone.trim())) {
+      setStatus({ type: "error", message: "Please enter a valid phone number." });
+      return;
+    }
+
+    if (form.message.trim().length < 10) {
+      setStatus({ type: "error", message: "Please share a little more detail so we can help effectively." });
+      return;
+    }
+
     setLoading(true);
     setStatus({ type: "idle", message: "" });
 
     try {
       const payload = {
-        name: form.name,
-        company: form.company,
-        email: form.email,
-        phone: form.phone,
-        service: form.service,
-        message: form.message,
+        name: form.name.trim(),
+        company: form.company.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        service: form.service.trim(),
+        message: form.message.trim(),
       };
 
       const response = await fetch(contactWorkerUrl, {
@@ -132,6 +148,7 @@ function Contact() {
         />
 
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${seoDefaults.canonicalBaseUrl}/og-image.jpg`} />
       </Helmet>
 
       <Header />
@@ -196,11 +213,13 @@ function Contact() {
                 </label>
                 <input
                   id="contact-name"
-                  className="w-full rounded-xl border p-4"
+                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="name"
                   placeholder="Full Name"
                   value={form.name}
                   onChange={handleChange}
+                  autoComplete="name"
+                  maxLength={80}
                   required
                 />
 
@@ -209,11 +228,13 @@ function Contact() {
                 </label>
                 <input
                   id="contact-company"
-                  className="w-full rounded-xl border p-4"
+                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="company"
                   placeholder="Company Name"
                   value={form.company}
                   onChange={handleChange}
+                  autoComplete="organization"
+                  maxLength={80}
                   required
                 />
 
@@ -222,11 +243,14 @@ function Contact() {
                 </label>
                 <input
                   id="contact-phone"
-                  className="w-full rounded-xl border p-4"
+                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="phone"
                   placeholder="Phone Number"
                   value={form.phone}
                   onChange={handleChange}
+                  inputMode="tel"
+                  autoComplete="tel"
+                  maxLength={20}
                   required
                 />
 
@@ -235,12 +259,14 @@ function Contact() {
                 </label>
                 <input
                   id="contact-email"
-                  className="w-full rounded-xl border p-4"
+                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   type="email"
                   name="email"
                   placeholder="Email Address"
                   value={form.email}
                   onChange={handleChange}
+                  autoComplete="email"
+                  maxLength={80}
                   required
                 />
 
@@ -249,7 +275,7 @@ function Contact() {
                 </label>
                 <select
                   id="contact-service"
-                  className="w-full rounded-xl border p-4"
+                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="service"
                   value={form.service}
                   onChange={handleChange}
@@ -270,17 +296,20 @@ function Contact() {
                 </label>
                 <textarea
                   id="contact-message"
-                  className="w-full rounded-xl border p-4"
+                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   rows="5"
                   name="message"
                   placeholder="Tell us how we can help..."
                   value={form.message}
                   onChange={handleChange}
+                  maxLength={1000}
                   required
                 />
 
                 {status.message ? (
                   <div
+                    role="status"
+                    aria-live="polite"
                     className={`rounded-xl border px-4 py-3 text-sm ${
                       status.type === "success"
                         ? "border-green-200 bg-green-50 text-green-700"

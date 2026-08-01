@@ -3,7 +3,10 @@ import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { faqItems } from "../../data/faq";
 
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prefersReducedMotion =
+  typeof window !== "undefined" && window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
 
 function FAQ() {
   const faqs = faqItems;

@@ -5,6 +5,37 @@ const corsHeaders = {
   "Access-Control-Max-Age": "86400",
 };
 
+const rateLimitEntries = new Map();
+const MAX_BODY_SIZE = 6000;
+const MAX_REQUESTS_PER_MINUTE = 5;
+
+function getClientIp(request) {
+  const forwarded = request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for");
+  return forwarded?.split(",")[0]?.trim() || "unknown";
+}
+
+function isRateLimited(request) {
+  const ip = getClientIp(request);
+  const now = Date.now();
+  const windowMs = 60 * 1000;
+  const existing = rateLimitEntries.get(ip);
+
+  if (!existing) {
+    rateLimitEntries.set(ip, [{ timestamp: now }]);
+    return false;
+  }
+
+  const recentRequests = existing.filter((entry) => now - entry.timestamp < windowMs);
+
+  if (recentRequests.length >= MAX_REQUESTS_PER_MINUTE) {
+    return true;
+  }
+
+  recentRequests.push({ timestamp: now });
+  rateLimitEntries.set(ip, recentRequests);
+  return false;
+}
+
 function jsonResponse(body, status = 200, headers = {}) {
   return new Response(JSON.stringify(body), {
     status,
@@ -62,6 +93,27 @@ export default {
       );
     }
 
+    if (isRateLimited(request)) {
+      return jsonResponse(
+        {
+          success: false,
+          message: "Too many requests. Please try again in a minute.",
+        },
+        429
+      );
+    }
+
+    const contentLength = request.headers.get("content-length");
+    if (contentLength && Number(contentLength) > MAX_BODY_SIZE) {
+      return jsonResponse(
+        {
+          success: false,
+          message: "The request is too large.",
+        },
+        413
+      );
+    }
+
     let payload;
 
     try {
@@ -71,6 +123,17 @@ export default {
         {
           success: false,
           message: "Invalid JSON payload.",
+        },
+        400
+      );
+    }
+
+    const honeypot = payload?.website?.trim() || "";
+    if (honeypot) {
+      return jsonResponse(
+        {
+          success: false,
+          message: "Your submission was rejected.",
         },
         400
       );
@@ -98,6 +161,39 @@ export default {
           success: false,
           message: "Please complete all required fields.",
           missingFields,
+        },
+        400
+      );
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^\+?[0-9\s()-]{7,15}$/;
+
+    if (!emailPattern.test(email)) {
+      return jsonResponse(
+        {
+          success: false,
+          message: "Please enter a valid email address.",
+        },
+        400
+      );
+    }
+
+    if (!phonePattern.test(phone)) {
+      return jsonResponse(
+        {
+          success: false,
+          message: "Please enter a valid phone number.",
+        },
+        400
+      );
+    }
+
+    if (message.length < 10) {
+      return jsonResponse(
+        {
+          success: false,
+          message: "Please add a bit more detail so we can help you better.",
         },
         400
       );

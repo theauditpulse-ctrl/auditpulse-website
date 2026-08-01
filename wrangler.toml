@@ -1,5 +1,5 @@
 name = "auditpulse-website"
-main = "workers/index.js"
+main = "workers/contact/index.js"
 compatibility_date = "2025-01-01"
 
 [assets]

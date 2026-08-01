@@ -89,6 +89,7 @@ function Footer() {
               <a
                 href="tel:+919025973127"
                 className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
+                aria-label="Call Audit Pulse"
               >
                 <Phone size={20} className="mt-1 text-[#FF8C00]" />
                 <span>{company.phone}</span>
@@ -97,6 +98,7 @@ function Footer() {
               <a
                 href="mailto:info@theauditpulse.com"
                 className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
+                aria-label="Email Audit Pulse"
               >
                 <Mail size={20} className="mt-1 text-[#FF8C00]" />
                 <span>{company.email}</span>
@@ -123,6 +125,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
+                aria-label="Visit Audit Pulse website"
               >
                 <Globe size={20} className="mt-1 text-[#FF8C00]" />
                 <span>{company.website.replace("https://", "")}</span>

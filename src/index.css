@@ -25,6 +25,12 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 3px solid #ff8c00;
+  outline-offset: 2px;
 }
 
 /* Headings */

@@ -44,6 +44,11 @@ function Services() {
           property="og:type"
           content="website"
         />
+
+        <meta
+          property="og:image"
+          content={`${seoDefaults.canonicalBaseUrl}/og-image.jpg`}
+        />
       </Helmet>
 
       <Header />
