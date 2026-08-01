@@ -2,6 +2,21 @@ import { motion } from "framer-motion";
 import { Calendar, MessageCircle } from "lucide-react";
 import HeroIllustration from "../../assets/images/hero-illustration.webp";
 
+const heroLinks = [
+  {
+    href: "/contact",
+    label: "Book Consultation",
+    icon: Calendar,
+    className: "bg-[#0F3D91] text-white hover:bg-blue-900",
+  },
+  {
+    href: "https://wa.me/919025973127",
+    label: "Chat on WhatsApp",
+    icon: MessageCircle,
+    className: "border-2 border-[#0F3D91] text-[#0F3D91] hover:bg-[#0F3D91] hover:text-white",
+  },
+];
+
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
@@ -36,26 +51,19 @@ function Hero() {
             with transparency, accuracy and timely service.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-5">
-
-            <a
-              href="/contact"
-              className="flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-xl transition duration-300 hover:-translate-y-1 hover:bg-blue-900"
-            >
-              <Calendar size={20} />
-              Book Consultation
-            </a>
-
-            <a
-              href="https://wa.me/919025973127"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded-xl border-2 border-[#0F3D91] px-8 py-4 font-semibold text-[#0F3D91] transition duration-300 hover:bg-[#0F3D91] hover:text-white"
-            >
-              <MessageCircle size={20} />
-              Chat on WhatsApp
-            </a>
-
+          <div className="mt-10 flex flex-wrap gap-4">
+            {heroLinks.map(({ href, label, icon: Icon, className }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={`flex items-center gap-3 rounded-xl px-7 py-3.5 font-semibold shadow-lg transition duration-300 hover:-translate-y-0.5 ${className}`}
+              >
+                <Icon size={18} />
+                {label}
+              </a>
+            ))}
           </div>
 
         </motion.div>
@@ -75,7 +83,7 @@ function Hero() {
             height={1024}
             loading="eager"
             decoding="async"
-            className="w-full drop-shadow-2xl"
+            className="w-full rounded-3xl drop-shadow-2xl"
           />
         </motion.div>
 

@@ -27,7 +27,7 @@ function Header() {
           : "border-b border-gray-100"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-6">
 
         {/* Logo */}
 
@@ -43,7 +43,7 @@ function Header() {
             height={399}
             loading="eager"
             decoding="async"
-            className="h-16 w-auto"
+            className="h-16 w-auto sm:h-20"
           />
         </NavLink>
 
@@ -71,7 +71,7 @@ function Header() {
 
         <NavLink
           to="/contact"
-          className="hidden rounded-xl bg-[#FF8C00] px-7 py-3.5 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E67E00] focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:block"
+          className="hidden rounded-xl bg-[#FF8C00] px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-[#E67E00] focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:block"
         >
           Get Free Consultation
         </NavLink>

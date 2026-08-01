@@ -15,9 +15,9 @@ function Footer() {
 
   return (
     <footer className="bg-[#0B1220] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-6 lg:py-16">
 
-        <div className="grid gap-12 lg:grid-cols-4">
+        <div className="grid gap-10 lg:grid-cols-4">
 
           {/* Brand */}
           <div>
@@ -136,7 +136,7 @@ function Footer() {
 
         </div>
 
-        <div className="mt-14 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+        <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400 sm:mt-12 sm:pt-8">
           © {new Date().getFullYear()} {company.name}. All Rights Reserved.
         </div>
 

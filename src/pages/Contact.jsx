@@ -19,7 +19,8 @@ import {
 function Contact() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: "idle", message: "" });
-  const contactWorkerUrl = import.meta.env.VITE_CONTACT_WORKER_URL || "/api/contact";
+  const contactWorkerUrl =
+    import.meta.env.VITE_CONTACT_WORKER_URL || "https://auditpulse-contact-worker.theauditpulse.workers.dev/api/contact";
 
   const [form, setForm] = useState({
     name: "",
@@ -75,6 +76,10 @@ function Contact() {
         },
         body: JSON.stringify(payload),
       });
+
+      if (!response.ok && response.status >= 500) {
+        throw new Error("Our contact service is temporarily unavailable. Please email info@theauditpulse.com directly.");
+      }
 
       let data;
 
@@ -208,6 +213,8 @@ function Contact() {
 
             <div className="rounded-2xl bg-slate-50 p-8 shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-5">
+                <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
                 <label htmlFor="contact-name" className="sr-only">
                   Full Name
                 </label>
