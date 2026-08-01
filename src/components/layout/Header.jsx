@@ -27,7 +27,7 @@ function Header() {
           : "border-b border-gray-100"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-6">
 
         {/* Logo */}
 
@@ -43,7 +43,7 @@ function Header() {
             height={399}
             loading="eager"
             decoding="async"
-            className="h-16 w-auto sm:h-20"
+            className="h-20 w-auto sm:h-24 lg:h-28 transition-all duration-300"
           />
         </NavLink>
 
@@ -97,9 +97,14 @@ function Header() {
       {/* Mobile Menu */}
 
       {menuOpen && (
-        <div id="mobile-navigation" className="border-t border-gray-200 bg-white lg:hidden">
-          <nav className="flex flex-col px-6 py-4" aria-label="Mobile navigation">
-
+        <div
+          id="mobile-navigation"
+          className="border-t border-gray-200 bg-white lg:hidden"
+        >
+          <nav
+            className="flex flex-col px-6 py-4"
+            aria-label="Mobile navigation"
+          >
             {navigationItems.map((item) => (
               <NavLink
                 key={item.name}
@@ -124,7 +129,6 @@ function Header() {
             >
               Get Free Consultation
             </NavLink>
-
           </nav>
         </div>
       )}
