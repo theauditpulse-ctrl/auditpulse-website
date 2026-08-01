@@ -18,11 +18,38 @@ function jsonResponse(body, status = 200, headers = {}) {
 
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
+    const isContactEndpoint = url.pathname === "/api/contact" || url.pathname === "/contact";
+
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
         headers: corsHeaders,
       });
+    }
+
+    if (!isContactEndpoint) {
+      if (request.method === "GET") {
+        const assetUrl = new URL("/index.html", request.url);
+        const assetResponse = await env.ASSETS.fetch(new Request(assetUrl, request));
+
+        if (assetResponse.ok) {
+          return new Response(assetResponse.body, {
+            status: 200,
+            headers: {
+              "Content-Type": "text/html; charset=utf-8",
+            },
+          });
+        }
+      }
+
+      return jsonResponse(
+        {
+          success: false,
+          message: "Method not allowed.",
+        },
+        405
+      );
     }
 
     if (request.method !== "POST") {
