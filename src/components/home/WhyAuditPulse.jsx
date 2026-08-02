@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import {
   ShieldCheck,
   Clock3,
-  BadgeCheck,
-  Users,
+  IndianRupee,
+  LockKeyhole,
+  Headphones,
   BriefcaseBusiness,
-  Smartphone,
   ArrowRight,
 } from "lucide-react";
 
@@ -13,9 +13,9 @@ function WhyAuditPulse() {
   const features = [
     {
       icon: ShieldCheck,
-      title: "Transparent Advice",
+      title: "Qualified Professionals",
       description:
-        "Clear communication, honest recommendations and complete transparency throughout every engagement.",
+        "Experienced professionals manage your accounting, taxation and compliance requirements with careful review.",
     },
     {
       icon: Clock3,
@@ -24,16 +24,16 @@ function WhyAuditPulse() {
         "Stay ahead of statutory deadlines with organised processes and timely execution.",
     },
     {
-      icon: BadgeCheck,
-      title: "Accuracy First",
+      icon: IndianRupee,
+      title: "Transparent Pricing",
       description:
-        "Every return, report and filing is prepared with precision and professional care.",
+        "Clear scopes, practical recommendations and transparent fee discussions before work begins.",
     },
     {
-      icon: Users,
-      title: "Personalized Support",
+      icon: LockKeyhole,
+      title: "Secure & Confidential",
       description:
-        "Solutions tailored to your individual or business requirements—not a one-size-fits-all approach.",
+        "Your financial documents and business information are handled with confidentiality and care.",
     },
     {
       icon: BriefcaseBusiness,
@@ -42,10 +42,10 @@ function WhyAuditPulse() {
         "Practical financial insights that help you make informed business decisions beyond compliance.",
     },
     {
-      icon: Smartphone,
-      title: "Modern & Digital",
+      icon: Headphones,
+      title: "Dedicated Support",
       description:
-        "Easy communication through WhatsApp, email and secure digital document sharing.",
+        "Responsive support keeps you informed from first consultation through ongoing compliance.",
     },
   ];
 
@@ -66,7 +66,7 @@ function WhyAuditPulse() {
           </span>
 
           <h2 className="mt-4 text-4xl font-bold text-[#0F3D91] lg:text-5xl">
-            Why Businesses Trust Audit Pulse
+            Professional Support That Builds Confidence
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -89,7 +89,7 @@ function WhyAuditPulse() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="group rounded-2xl border border-transparent bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
+                className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
               >
                 <div className="inline-flex rounded-xl bg-blue-100 p-4 text-[#0F3D91] transition duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
                   <Icon size={30} />
