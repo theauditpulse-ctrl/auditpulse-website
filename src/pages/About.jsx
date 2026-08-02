@@ -57,13 +57,13 @@ function About() {
       <main>
 
         {/* Hero */}
-        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
+        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 text-center">
             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
               About {seoDefaults.siteName}
             </span>
 
-            <h1 className="mt-4 text-5xl font-bold text-[#0F3D91] lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-[#0F3D91] sm:text-5xl lg:text-6xl">
               Building Trust Through
               <br />
               Financial Excellence
@@ -79,8 +79,8 @@ function About() {
         </section>
 
         {/* Our Story */}
-        <section className="bg-white py-24">
-          <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:gap-16">
             <div>
               <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
                 Our Story
@@ -107,7 +107,7 @@ function About() {
               </p>
             </div>
 
-            <div className="rounded-3xl bg-[#0F3D91] p-10 text-white shadow-2xl">
+            <div className="rounded-3xl bg-[#0F3D91] p-8 text-white shadow-2xl sm:p-10">
               <h3 className="text-3xl font-bold">
                 Why Clients Choose {seoDefaults.siteName}
               </h3>
@@ -123,14 +123,14 @@ function About() {
         </section>
 
         {/* Mission & Vision */}
-        <section className="bg-white py-24">
+        <section className="bg-white py-20 sm:py-24">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2">
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl bg-white p-10 shadow-xl"
+              className="rounded-2xl border border-gray-100 bg-white p-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl sm:p-10"
             >
               <Target className="text-[#0F3D91]" size={42} />
 
@@ -150,7 +150,7 @@ function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="rounded-2xl bg-white p-10 shadow-xl"
+              className="rounded-2xl border border-gray-100 bg-white p-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl sm:p-10"
             >
               <Eye className="text-[#FF8C00]" size={42} />
 
@@ -168,7 +168,7 @@ function About() {
         </section>
 
         {/* Core Values */}
-        <section className="bg-slate-50 py-24">
+        <section className="bg-slate-50 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="text-center">
               <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
@@ -184,7 +184,7 @@ function About() {
               {["Transparency", "Accuracy", "Reliability"].map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:border hover:border-[#FF8C00]"
+                  className="rounded-2xl border border-transparent bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
                 >
                   <ShieldCheck className="text-[#0F3D91]" size={36} />
 

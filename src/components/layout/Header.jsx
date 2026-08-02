@@ -5,6 +5,12 @@ import { Menu, X } from "lucide-react";
 import logo from "../../assets/logo/logo-navbar.webp";
 import { navigationItems } from "../../data/company";
 
+const scrollToPageTop = () => {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+};
+
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +40,10 @@ function Header() {
         <NavLink
           to="/"
           className="flex items-center gap-4"
-          onClick={() => setMenuOpen(false)}
+          onClick={() => {
+            setMenuOpen(false);
+            scrollToPageTop();
+          }}
         >
           <img
             src={logo}
@@ -54,6 +63,7 @@ function Header() {
             <NavLink
               key={item.name}
               to={item.path}
+              onClick={scrollToPageTop}
               className={({ isActive }) =>
                 `relative pb-1 font-medium transition duration-300 ${
                   isActive
@@ -71,6 +81,7 @@ function Header() {
 
         <NavLink
           to="/contact"
+          onClick={scrollToPageTop}
           className="hidden rounded-xl bg-[#FF8C00] px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-[#E67E00] focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:block"
         >
           Get Free Consultation
@@ -109,7 +120,10 @@ function Header() {
               <NavLink
                 key={item.name}
                 to={item.path}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  setMenuOpen(false);
+                  scrollToPageTop();
+                }}
                 className={({ isActive }) =>
                   `rounded-lg px-4 py-3 text-base font-medium transition focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 ${
                     isActive
@@ -124,7 +138,10 @@ function Header() {
 
             <NavLink
               to="/contact"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                  setMenuOpen(false);
+                  scrollToPageTop();
+                }}
               className="mt-4 rounded-xl bg-[#FF8C00] px-6 py-3 text-center font-semibold text-white focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2"
             >
               Get Free Consultation

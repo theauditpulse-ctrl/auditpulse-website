@@ -1,4 +1,5 @@
 import { Download } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import Footer from "../components/layout/Footer";
@@ -135,12 +136,12 @@ function Resources() {
               {downloadCenter.description}
             </p>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="mt-8 inline-block rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white transition hover:bg-blue-900"
             >
               {downloadCenter.ctaLabel}
-            </a>
+            </Link>
           </div>
         </section>
       </main>
