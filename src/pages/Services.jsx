@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { services } from "../data/services";
@@ -54,13 +55,13 @@ function Services() {
       <Header />
 
       <main>
-        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
+        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-16 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 text-center">
             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
               Our Services
             </span>
 
-            <h1 className="mt-4 text-5xl font-bold text-[#0F3D91] lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl text-[#0F3D91] lg:text-6xl">
               Professional Accounting & Tax Solutions
             </h1>
 
@@ -71,7 +72,7 @@ function Services() {
           </div>
         </section>
 
-        <section className="bg-white py-24">
+        <section className="bg-white py-16 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => {
@@ -80,7 +81,7 @@ function Services() {
                 return (
                   <div
                     key={service.title}
-                    className="rounded-2xl border border-transparent bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
+                    className="rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
                   >
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-[#0F3D91]">
                       <Icon size={28} />
@@ -117,12 +118,12 @@ function Services() {
               here to simplify your accounting, taxation and compliance.
             </p>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="mt-10 inline-block rounded-xl bg-[#FF8C00] px-8 py-4 font-semibold text-white transition hover:bg-orange-600"
             >
               Get Free Consultation
-            </a>
+            </Link>
           </div>
         </section>
       </main>

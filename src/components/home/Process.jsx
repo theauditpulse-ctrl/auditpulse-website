@@ -11,28 +11,28 @@ function Process() {
     {
       number: "01",
       icon: PhoneCall,
-      title: "Connect",
+      title: "Step 1 Consultation",
       description:
         "Reach out via phone, WhatsApp or email to discuss your accounting and compliance requirements.",
     },
     {
       number: "02",
       icon: ClipboardList,
-      title: "Consult",
+      title: "Step 2 Planning",
       description:
         "We understand your needs and recommend the most suitable financial and compliance solutions.",
     },
     {
       number: "03",
       icon: CheckCircle2,
-      title: "Execute",
+      title: "Step 3 Execution",
       description:
         "Our professionals complete your work accurately, efficiently and within the agreed timelines.",
     },
     {
       number: "04",
       icon: Handshake,
-      title: "Support",
+      title: "Step 4 Ongoing Support",
       description:
         "We continue to support you with ongoing compliance, advisory and business guidance whenever you need us.",
     },
@@ -51,7 +51,7 @@ function Process() {
           className="mx-auto max-w-3xl text-center"
         >
           <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
-            Our Process
+            How We Work
           </span>
 
           <h2 className="mt-4 text-4xl font-bold text-[#0F3D91] lg:text-5xl">
@@ -77,7 +77,7 @@ function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="group rounded-2xl border border-transparent bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
+                className="group rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
               >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-[#0F3D91] transition-all duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
                   <Icon size={30} />

@@ -6,16 +6,23 @@ import {
   Globe,
   ChevronRight,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { company, navigationItems, servicesList } from "../../data/company";
 
 function Footer() {
   const services = servicesList;
+  const location = useLocation();
+
+  const handleFooterLinkClick = (path) => {
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
   const quickLinks = navigationItems;
 
   return (
     <footer className="bg-[#0B1220] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-6 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
 
         <div className="grid gap-10 lg:grid-cols-4">
 
@@ -49,7 +56,8 @@ function Footer() {
                 <li key={item.name}>
                   <Link
                     to={item.path}
-                    className="flex items-center gap-2 text-gray-300 transition hover:text-orange-400"
+                    onClick={() => handleFooterLinkClick(item.path)}
+                    className="flex items-center gap-2 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
                   >
                     <ChevronRight size={16} />
                     {item.name}
@@ -88,7 +96,7 @@ function Footer() {
 
               <a
                 href="tel:+919025973127"
-                className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
+                className="flex items-start gap-3 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
                 aria-label="Call Audit Pulse"
               >
                 <Phone size={20} className="mt-1 text-[#FF8C00]" />
@@ -97,7 +105,7 @@ function Footer() {
 
               <a
                 href="mailto:info@theauditpulse.com"
-                className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
+                className="flex items-start gap-3 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
                 aria-label="Email Audit Pulse"
               >
                 <Mail size={20} className="mt-1 text-[#FF8C00]" />
@@ -124,7 +132,7 @@ function Footer() {
                 href="https://www.theauditpulse.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
+                className="flex items-start gap-3 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
                 aria-label="Visit Audit Pulse website"
               >
                 <Globe size={20} className="mt-1 text-[#FF8C00]" />
