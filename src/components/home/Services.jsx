@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   FileText,
   Receipt,
@@ -117,13 +118,13 @@ function Services() {
             Need a solution tailored to your requirements?
           </p>
 
-          <a
-            href="/services"
+          <Link
+            to="/services"
             className="inline-flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-blue-900"
           >
             Explore Our Services
             <ArrowRight size={20} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

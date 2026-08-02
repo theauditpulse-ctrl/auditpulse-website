@@ -158,13 +158,13 @@ function Contact() {
       <Header />
 
       <main>
-        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
+        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 text-center">
             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
               Contact {company.name}
             </span>
 
-            <h1 className="mt-4 text-5xl font-bold text-[#0F3D91]">
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-[#0F3D91] sm:text-5xl">
               Let's Talk About Your Business
             </h1>
 
@@ -175,43 +175,43 @@ function Contact() {
           </div>
         </section>
 
-        <section className="bg-white py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:gap-14">
             <div>
               <h2 className="text-4xl font-bold text-[#0F3D91]">
                 Get in Touch
               </h2>
 
               <div className="mt-10 space-y-6">
-                <div className="flex gap-3">
+                <div className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
                   <Phone />
                   <p>{company.phone}</p>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
                   <MessageCircle />
                   <p>WhatsApp: {company.phone}</p>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
                   <Mail />
                   <p>{company.email}</p>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
                   <MapPin />
                   <p>{company.location}</p>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
                   <Clock3 />
                   <p>{company.hours.weekdays.replace(" :", " ")}</p>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-slate-50 p-8 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="rounded-2xl bg-slate-50 p-5 shadow-xl sm:p-8">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
                 <label htmlFor="contact-name" className="sr-only">
@@ -219,7 +219,7 @@ function Contact() {
                 </label>
                 <input
                   id="contact-name"
-                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
+                  className="w-full rounded-xl border border-gray-300 p-4 transition focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="name"
                   placeholder="Full Name"
                   value={form.name}
@@ -234,7 +234,7 @@ function Contact() {
                 </label>
                 <input
                   id="contact-company"
-                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
+                  className="w-full rounded-xl border border-gray-300 p-4 transition focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="company"
                   placeholder="Company Name"
                   value={form.company}
@@ -249,7 +249,7 @@ function Contact() {
                 </label>
                 <input
                   id="contact-phone"
-                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
+                  className="w-full rounded-xl border border-gray-300 p-4 transition focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="phone"
                   placeholder="Phone Number"
                   value={form.phone}
@@ -265,7 +265,7 @@ function Contact() {
                 </label>
                 <input
                   id="contact-email"
-                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
+                  className="w-full rounded-xl border border-gray-300 p-4 transition focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   type="email"
                   name="email"
                   placeholder="Email Address"
@@ -281,7 +281,7 @@ function Contact() {
                 </label>
                 <select
                   id="contact-service"
-                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
+                  className="w-full rounded-xl border border-gray-300 p-4 transition focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   name="service"
                   value={form.service}
                   onChange={handleChange}
@@ -302,7 +302,7 @@ function Contact() {
                 </label>
                 <textarea
                   id="contact-message"
-                  className="w-full rounded-xl border border-gray-300 p-4 focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
+                  className="w-full rounded-xl border border-gray-300 p-4 transition focus:border-[#0F3D91] focus:outline-none focus:ring-2 focus:ring-[#0F3D91]/20"
                   rows="5"
                   name="message"
                   placeholder="Tell us how we can help..."
@@ -329,7 +329,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-xl bg-[#0F3D91] py-4 font-semibold text-white transition hover:bg-blue-900 disabled:opacity-60"
+                  className="w-full rounded-xl bg-[#0F3D91] py-4 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-blue-900 active:translate-y-0 disabled:translate-y-0 disabled:opacity-60"
                 >
                   {loading ? "Sending..." : "Send Enquiry"}
                 </button>

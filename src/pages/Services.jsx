@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -117,12 +118,12 @@ function Services() {
               here to simplify your accounting, taxation and compliance.
             </p>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="mt-10 inline-block rounded-xl bg-[#FF8C00] px-8 py-4 font-semibold text-white transition hover:bg-orange-600"
             >
               Get Free Consultation
-            </a>
+            </Link>
           </div>
         </section>
       </main>

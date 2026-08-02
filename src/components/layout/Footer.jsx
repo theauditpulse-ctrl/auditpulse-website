@@ -9,6 +9,12 @@ import {
 import { Link } from "react-router-dom";
 import { company, navigationItems, servicesList } from "../../data/company";
 
+const scrollToPageTop = () => {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+};
+
 function Footer() {
   const services = servicesList;
   const quickLinks = navigationItems;
@@ -49,7 +55,8 @@ function Footer() {
                 <li key={item.name}>
                   <Link
                     to={item.path}
-                    className="flex items-center gap-2 text-gray-300 transition hover:text-orange-400"
+                    onClick={scrollToPageTop}
+                    className="flex items-center gap-2 text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-[#0B1220]"
                   >
                     <ChevronRight size={16} />
                     {item.name}

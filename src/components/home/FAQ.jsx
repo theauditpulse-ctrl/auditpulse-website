@@ -14,7 +14,7 @@ function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-4xl px-6">
 
         {/* Heading */}
@@ -40,7 +40,7 @@ function FAQ() {
         </motion.div>
 
         {/* FAQ Items */}
-        <div className="mt-14 space-y-5">
+        <div className="mt-12 space-y-4 sm:mt-14 sm:space-y-5">
           {faqs.map((faq, index) => (
             <motion.div
               key={faq.question}
@@ -59,9 +59,9 @@ function FAQ() {
                 onClick={() => setOpen(open === index ? -1 : index)}
                 aria-expanded={open === index}
                 aria-controls={`faq-panel-${index}`}
-                className="flex w-full items-center justify-between p-6 text-left focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2"
+                className="flex w-full items-center justify-between gap-4 p-5 text-left transition hover:bg-blue-50/50 focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 sm:p-6"
               >
-                <span className="text-lg font-semibold text-[#0F3D91]">
+                <span className="text-base font-semibold leading-7 text-[#0F3D91] sm:text-lg">
                   {faq.question}
                 </span>
 
@@ -78,7 +78,7 @@ function FAQ() {
                   initial={prefersReducedMotion ? false : { opacity: 0, height: 0 }}
                   animate={prefersReducedMotion ? { opacity: 1, height: "auto" } : { opacity: 1, height: "auto" }}
                   transition={{ duration: 0.3 }}
-                  className="px-6 pb-6 leading-7 text-gray-600"
+                  className="px-5 pb-5 leading-8 text-gray-600 sm:px-6 sm:pb-6"
                 >
                   {faq.answer}
                 </motion.div>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Calendar, MessageCircle } from "lucide-react";
 import HeroIllustration from "../../assets/images/hero-illustration.webp";
 
@@ -52,18 +53,28 @@ function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            {heroLinks.map(({ href, label, icon: Icon, className }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`flex items-center gap-3 rounded-xl px-7 py-3.5 font-semibold shadow-lg transition duration-300 hover:-translate-y-0.5 ${className}`}
-              >
-                <Icon size={18} />
-                {label}
-              </a>
-            ))}
+            {heroLinks.map(({ href, label, icon: Icon, className }) => {
+              const isExternal = href.startsWith("http");
+              const classNames = `flex items-center gap-3 rounded-xl px-7 py-3.5 font-semibold shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 ${className}`;
+
+              return isExternal ? (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={classNames}
+                >
+                  <Icon size={18} aria-hidden="true" />
+                  {label}
+                </a>
+              ) : (
+                <Link key={label} to={href} className={classNames}>
+                  <Icon size={18} aria-hidden="true" />
+                  {label}
+                </Link>
+              );
+            })}
           </div>
 
         </motion.div>
@@ -78,7 +89,7 @@ function Hero() {
         >
           <img
             src={HeroIllustration}
-            alt="Audit Pulse Illustration"
+            alt="Audit Pulse accounting and compliance illustration"
             width={1536}
             height={1024}
             loading="eager"
