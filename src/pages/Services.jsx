@@ -5,6 +5,12 @@ import Footer from "../components/layout/Footer";
 import { services } from "../data/services";
 import { seoDefaults } from "../data/company";
 
+const scrollToPageTop = () => {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+};
+
 function Services() {
   return (
     <>
@@ -120,6 +126,7 @@ function Services() {
 
             <Link
               to="/contact"
+              onClick={scrollToPageTop}
               className="mt-10 inline-block rounded-xl bg-[#FF8C00] px-8 py-4 font-semibold text-white transition hover:bg-orange-600"
             >
               Get Free Consultation

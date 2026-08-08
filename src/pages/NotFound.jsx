@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { Home, SearchX } from "lucide-react";
 
+const scrollToPageTop = () => {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+};
+
 function NotFound() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 px-6 py-24">
@@ -24,6 +30,7 @@ function NotFound() {
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Link
             to="/"
+            onClick={scrollToPageTop}
             className="inline-flex items-center gap-3 rounded-xl bg-[#0F3D91] px-7 py-3.5 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-blue-900"
           >
             <Home size={18} />
@@ -32,6 +39,7 @@ function NotFound() {
 
           <Link
             to="/contact"
+            onClick={scrollToPageTop}
             className="inline-flex items-center rounded-xl border-2 border-[#0F3D91] px-7 py-3.5 font-semibold text-[#0F3D91] transition duration-300 hover:bg-[#0F3D91] hover:text-white"
           >
             Contact Us

@@ -10,6 +10,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+const scrollToPageTop = () => {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+};
+
 function Services() {
   const services = [
     {
@@ -120,6 +126,7 @@ function Services() {
 
           <Link
             to="/services"
+            onClick={scrollToPageTop}
             className="inline-flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-blue-900"
           >
             Explore Our Services

@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useLocation, useNavigationType } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const TOP_SCROLL_OPTIONS = { top: 0, left: 0, behavior: "auto" };
 
 function ScrollToTop() {
   const { pathname, search, hash } = useLocation();
-  const navigationType = useNavigationType();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -30,7 +29,7 @@ function ScrollToTop() {
     window.requestAnimationFrame(() => {
       window.scrollTo(TOP_SCROLL_OPTIONS);
     });
-  }, [pathname, search, hash, navigationType]);
+  }, [pathname, search, hash]);
 
   return null;
 }

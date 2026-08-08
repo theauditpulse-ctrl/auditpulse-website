@@ -21,7 +21,6 @@ function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -36,7 +35,6 @@ function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-6">
 
         {/* Logo */}
-
         <NavLink
           to="/"
           className="flex items-center gap-4"
@@ -57,7 +55,6 @@ function Header() {
         </NavLink>
 
         {/* Desktop Navigation */}
-
         <nav className="hidden items-center gap-10 lg:flex">
           {navigationItems.map((item) => (
             <NavLink
@@ -78,17 +75,15 @@ function Header() {
         </nav>
 
         {/* CTA */}
-
         <NavLink
           to="/contact"
           onClick={scrollToPageTop}
           className="hidden rounded-xl bg-[#FF8C00] px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-[#E67E00] focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:block"
         >
-          Get Free Consultation
+          Talk to an Expert Today
         </NavLink>
 
         {/* Mobile Button */}
-
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -106,7 +101,6 @@ function Header() {
       </div>
 
       {/* Mobile Menu */}
-
       {menuOpen && (
         <div
           id="mobile-navigation"
@@ -139,12 +133,12 @@ function Header() {
             <NavLink
               to="/contact"
               onClick={() => {
-                  setMenuOpen(false);
-                  scrollToPageTop();
-                }}
+                setMenuOpen(false);
+                scrollToPageTop();
+              }}
               className="mt-4 rounded-xl bg-[#FF8C00] px-6 py-3 text-center font-semibold text-white focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2"
             >
-              Get Free Consultation
+              Talk to an Expert Today
             </NavLink>
           </nav>
         </div>

@@ -1,0 +1,1418 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/on b/on
+deleted file mode 100644
+index 78ccccd02e3f7c3e6df3695c0da54b5e18cac875..0000000000000000000000000000000000000000
+--- a/on
++++ /dev/null
+@@ -1,46 +0,0 @@
+-[1mdiff --git a/index.html b/index.html[m
+-[1mindex 81c8ca3..26c57aa 100644[m
+-[1m--- a/index.html[m
+-[1m+++ b/index.html[m
+-[36m@@ -48,11 +48,9 @@[m
+-       content="https://www.theauditpulse.com"[m
+-     />[m
+- [m
+-[31m-    <meta[m
+-[31m-      property="og:image"[m
+-[31m-      content="https://www.theauditpulse.com/og-image.jpg"[m
+-[31m-    />[m
+-[31m-[m
+-[32m+[m[32m    <meta property="og:image" content="https://www.theauditpulse.com/og-image.jpg" />[m
+-[32m+[m[32m    <meta property="og:image:width" content="1200" />[m
+-[32m+[m[32m    <meta property="og:image:height" content="630" />[m
+-     <meta property="og:site_name" content="Audit Pulse" />[m
+-     <meta property="og:locale" content="en_IN" />[m
+- [m
+-[36m@@ -72,10 +70,10 @@[m
+-       content="Professional accounting, taxation, GST, bookkeeping and compliance services."[m
+-     />[m
+- [m
+-[31m-    <meta[m
+-[31m-      name="twitter:image"[m
+-[31m-      content="https://www.theauditpulse.com/og-image.jpg"[m
+-[31m-    />[m
+-[32m+[m[32m    <meta name="twitter:image" content="https://www.theauditpulse.com/og-image.jpg" />[m
+-[32m+[m[32m    <meta name="twitter:site" content="@auditpulse" />[m
+-[32m+[m
+-[32m+[m[32m    <meta name="format-detection" content="telephone=no" />[m
+- [m
+-     <!-- Local Business Schema -->[m
+-     <script type="application/ld+json">[m
+-[36m@@ -98,7 +96,10 @@[m
+-           "addressRegion": "Tamil Nadu",[m
+-           "postalCode": "600011",[m
+-           "addressCountry": "IN"[m
+-[31m-        }[m
+-[32m+[m[32m        },[m
+-[32m+[m[32m        "sameAs": [[m
+-[32m+[m[32m          "https://www.linkedin.com/"[m
+-[32m+[m[32m        ][m
+-       }[m
+-     </script>[m
+-   </head>[m
+diff --git a/src/App.css b/src/App.css
+deleted file mode 100644
+index f90339d8f765fa2c69d9a341959a8ddb9fff5720..0000000000000000000000000000000000000000
+--- a/src/App.css
++++ /dev/null
+@@ -1,184 +0,0 @@
+-.counter {
+-  font-size: 16px;
+-  padding: 5px 10px;
+-  border-radius: 5px;
+-  color: var(--accent);
+-  background: var(--accent-bg);
+-  border: 2px solid transparent;
+-  transition: border-color 0.3s;
+-  margin-bottom: 24px;
+-
+-  &:hover {
+-    border-color: var(--accent-border);
+-  }
+-  &:focus-visible {
+-    outline: 2px solid var(--accent);
+-    outline-offset: 2px;
+-  }
+-}
+-
+-.hero {
+-  position: relative;
+-
+-  .base,
+-  .framework,
+-  .vite {
+-    inset-inline: 0;
+-    margin: 0 auto;
+-  }
+-
+-  .base {
+-    width: 170px;
+-    position: relative;
+-    z-index: 0;
+-  }
+-
+-  .framework,
+-  .vite {
+-    position: absolute;
+-  }
+-
+-  .framework {
+-    z-index: 1;
+-    top: 34px;
+-    height: 28px;
+-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+-      scale(1.4);
+-  }
+-
+-  .vite {
+-    z-index: 0;
+-    top: 107px;
+-    height: 26px;
+-    width: auto;
+-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+-      scale(0.8);
+-  }
+-}
+-
+-#center {
+-  display: flex;
+-  flex-direction: column;
+-  gap: 25px;
+-  place-content: center;
+-  place-items: center;
+-  flex-grow: 1;
+-
+-  @media (max-width: 1024px) {
+-    padding: 32px 20px 24px;
+-    gap: 18px;
+-  }
+-}
+-
+-#next-steps {
+-  display: flex;
+-  border-top: 1px solid var(--border);
+-  text-align: left;
+-
+-  & > div {
+-    flex: 1 1 0;
+-    padding: 32px;
+-    @media (max-width: 1024px) {
+-      padding: 24px 20px;
+-    }
+-  }
+-
+-  .icon {
+-    margin-bottom: 16px;
+-    width: 22px;
+-    height: 22px;
+-  }
+-
+-  @media (max-width: 1024px) {
+-    flex-direction: column;
+-    text-align: center;
+-  }
+-}
+-
+-#docs {
+-  border-right: 1px solid var(--border);
+-
+-  @media (max-width: 1024px) {
+-    border-right: none;
+-    border-bottom: 1px solid var(--border);
+-  }
+-}
+-
+-#next-steps ul {
+-  list-style: none;
+-  padding: 0;
+-  display: flex;
+-  gap: 8px;
+-  margin: 32px 0 0;
+-
+-  .logo {
+-    height: 18px;
+-  }
+-
+-  a {
+-    color: var(--text-h);
+-    font-size: 16px;
+-    border-radius: 6px;
+-    background: var(--social-bg);
+-    display: flex;
+-    padding: 6px 12px;
+-    align-items: center;
+-    gap: 8px;
+-    text-decoration: none;
+-    transition: box-shadow 0.3s;
+-
+-    &:hover {
+-      box-shadow: var(--shadow);
+-    }
+-    .button-icon {
+-      height: 18px;
+-      width: 18px;
+-    }
+-  }
+-
+-  @media (max-width: 1024px) {
+-    margin-top: 20px;
+-    flex-wrap: wrap;
+-    justify-content: center;
+-
+-    li {
+-      flex: 1 1 calc(50% - 8px);
+-    }
+-
+-    a {
+-      width: 100%;
+-      justify-content: center;
+-      box-sizing: border-box;
+-    }
+-  }
+-}
+-
+-#spacer {
+-  height: 88px;
+-  border-top: 1px solid var(--border);
+-  @media (max-width: 1024px) {
+-    height: 48px;
+-  }
+-}
+-
+-.ticks {
+-  position: relative;
+-  width: 100%;
+-
+-  &::before,
+-  &::after {
+-    content: '';
+-    position: absolute;
+-    top: -4.5px;
+-    border: 5px solid transparent;
+-  }
+-
+-  &::before {
+-    left: 0;
+-    border-left-color: var(--border);
+-  }
+-  &::after {
+-    right: 0;
+-    border-right-color: var(--border);
+-  }
+-}
+diff --git a/src/components/home/Hero.jsx b/src/components/home/Hero.jsx
+index 64c23543fc937fc4575127281425a5769ceb8f53..d7c5b598e1e1d2a579ccdd78be11ed82bd886cb3 100644
+--- a/src/components/home/Hero.jsx
++++ b/src/components/home/Hero.jsx
+@@ -1,95 +1,57 @@
+ import { motion } from "framer-motion";
+-import { Calendar, MessageCircle } from "lucide-react";
++import { Calendar, CheckCircle2, MessageCircle } from "lucide-react";
++import { Link } from "react-router-dom";
+ import HeroIllustration from "../../assets/images/hero-illustration.webp";
+ 
+-const heroLinks = [
+-  {
+-    href: "/contact",
+-    label: "Book Consultation",
+-    icon: Calendar,
+-    className: "bg-[#0F3D91] text-white hover:bg-blue-900",
+-  },
+-  {
+-    href: "https://wa.me/919025973127",
+-    label: "Chat on WhatsApp",
+-    icon: MessageCircle,
+-    className: "border-2 border-[#0F3D91] text-[#0F3D91] hover:bg-[#0F3D91] hover:text-white",
+-  },
+-];
+-
+ function Hero() {
++  const trustPoints = ["Responsive support", "Secure document handling", "Deadline-led compliance"];
++
+   return (
+     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
++      <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" aria-hidden="true" />
++      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-orange-200/30 blur-3xl" aria-hidden="true" />
+ 
+-      {/* Background Blur */}
+-      <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-200/20 blur-3xl"></div>
+-      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-orange-200/20 blur-3xl"></div>
+-
+-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-16 px-6 py-24 lg:flex-row">
+-
+-        {/* LEFT CONTENT */}
+-        <motion.div
+-          initial={{ opacity: 0, y: 40 }}
+-          animate={{ opacity: 1, y: 0 }}
+-          transition={{ duration: 0.7 }}
+-          className="max-w-2xl"
+-        >
+-          <span className="inline-flex items-center rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0F3D91]">
+-            Empowering Businesses Through Better Financial Decisions
++      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24">
++        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="max-w-3xl text-center lg:text-left">
++          <span className="inline-flex items-center rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-bold text-[#0F3D91] shadow-sm">
++            Accounting, Taxation & Compliance Advisory
+           </span>
+ 
+-          <h1 className="mt-8 text-5xl font-extrabold leading-tight text-[#0F3D91] lg:text-7xl">
+-            Compliance Made
+-            <br />
+-            <span>Simple.</span>
+-            <span className="text-[#FF8C00]"> Growth Made Possible.</span>
++          <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-[#0F3D91] sm:text-5xl lg:text-6xl xl:text-7xl">
++            Compliance Made Simple. <span className="text-[#FF8C00]">Growth Made Possible.</span>
+           </h1>
+ 
+-          <p className="mt-8 max-w-xl text-lg leading-8 text-gray-600">
+-            Professional accounting, taxation and compliance solutions for
+-            individuals, entrepreneurs and businesses across India — delivered
+-            with transparency, accuracy and timely service.
++          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg lg:mx-0">
++            Professional accounting, taxation and business compliance support for individuals, entrepreneurs and companies across India—delivered with clarity, accuracy and timely communication.
+           </p>
+ 
+-          <div className="mt-10 flex flex-wrap gap-4">
+-            {heroLinks.map(({ href, label, icon: Icon, className }) => (
+-              <a
+-                key={label}
+-                href={href}
+-                target={href.startsWith("http") ? "_blank" : undefined}
+-                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+-                className={`flex items-center gap-3 rounded-xl px-7 py-3.5 font-semibold shadow-lg transition duration-300 hover:-translate-y-0.5 ${className}`}
+-              >
+-                <Icon size={18} />
+-                {label}
+-              </a>
+-            ))}
++          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
++            <Link to="/contact" className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#0F3D91] px-7 py-4 font-bold text-white shadow-xl shadow-blue-900/20 transition duration-300 hover:-translate-y-0.5 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2">
++              <Calendar size={19} aria-hidden="true" />
++              Book Consultation
++            </Link>
++            <a href="https://wa.me/919025973127" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-[#0F3D91] bg-white px-7 py-4 font-bold text-[#0F3D91] shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-[#0F3D91] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2">
++              <MessageCircle size={19} aria-hidden="true" />
++              Chat on WhatsApp
++            </a>
+           </div>
+ 
++          <div className="mt-8 grid gap-3 text-left sm:grid-cols-3">
++            {trustPoints.map((point) => (
++              <div key={point} className="flex items-center gap-2 rounded-xl bg-white/80 px-4 py-3 text-sm font-semibold text-gray-700 shadow-sm">
++                <CheckCircle2 size={18} className="shrink-0 text-[#FF8C00]" aria-hidden="true" />
++                {point}
++              </div>
++            ))}
++          </div>
+         </motion.div>
+ 
+-        {/* RIGHT IMAGE */}
+-
+-        <motion.div
+-          initial={{ opacity: 0, x: 50 }}
+-          animate={{ opacity: 1, x: 0 }}
+-          transition={{ duration: 0.8 }}
+-          className="w-full max-w-2xl"
+-        >
+-          <img
+-            src={HeroIllustration}
+-            alt="Audit Pulse Illustration"
+-            width={1536}
+-            height={1024}
+-            loading="eager"
+-            decoding="async"
+-            className="w-full rounded-3xl drop-shadow-2xl"
+-          />
++        <motion.div initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="mx-auto w-full max-w-xl lg:max-w-2xl">
++          <img src={HeroIllustration} alt="Audit Pulse professional accounting and compliance illustration" width={1536} height={1024} loading="eager" decoding="async" className="w-full rounded-[2rem] border border-white/80 bg-white/30 shadow-2xl shadow-blue-900/10" />
+         </motion.div>
+-
+       </div>
+     </section>
+   );
+ }
+ 
+-export default Hero;
+\ No newline at end of file
++export default Hero;
+diff --git a/src/components/home/Process.jsx b/src/components/home/Process.jsx
+index 477aab871dee892c440df99bc87c87ed5cfac7e6..f1b69b88181ac8e567b1e0b2db595583145d5510 100644
+--- a/src/components/home/Process.jsx
++++ b/src/components/home/Process.jsx
+@@ -1,105 +1,105 @@
+ import { motion } from "framer-motion";
+ import {
+   PhoneCall,
+   ClipboardList,
+   CheckCircle2,
+   Handshake,
+ } from "lucide-react";
+ 
+ function Process() {
+   const steps = [
+     {
+       number: "01",
+       icon: PhoneCall,
+-      title: "Connect",
++      title: "Step 1 Consultation",
+       description:
+         "Reach out via phone, WhatsApp or email to discuss your accounting and compliance requirements.",
+     },
+     {
+       number: "02",
+       icon: ClipboardList,
+-      title: "Consult",
++      title: "Step 2 Planning",
+       description:
+         "We understand your needs and recommend the most suitable financial and compliance solutions.",
+     },
+     {
+       number: "03",
+       icon: CheckCircle2,
+-      title: "Execute",
++      title: "Step 3 Execution",
+       description:
+         "Our professionals complete your work accurately, efficiently and within the agreed timelines.",
+     },
+     {
+       number: "04",
+       icon: Handshake,
+-      title: "Support",
++      title: "Step 4 Ongoing Support",
+       description:
+         "We continue to support you with ongoing compliance, advisory and business guidance whenever you need us.",
+     },
+   ];
+ 
+   return (
+     <section className="bg-[#F8FAFC] py-24">
+       <div className="mx-auto max-w-7xl px-6">
+ 
+         {/* Heading */}
+         <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.6 }}
+           viewport={{ once: true }}
+           className="mx-auto max-w-3xl text-center"
+         >
+           <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
+-            Our Process
++            How We Work
+           </span>
+ 
+           <h2 className="mt-4 text-4xl font-bold text-[#0F3D91] lg:text-5xl">
+             A Simple Process Designed Around You
+           </h2>
+ 
+           <p className="mt-6 text-lg leading-8 text-gray-600">
+             Working with Audit Pulse is simple. Our streamlined four-step
+             process ensures your accounting, taxation and compliance needs are
+             handled professionally from start to finish.
+           </p>
+         </motion.div>
+ 
+         {/* Process Cards */}
+         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+           {steps.map((step, index) => {
+             const Icon = step.icon;
+ 
+             return (
+               <motion.div
+                 key={step.number}
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ delay: index * 0.08 }}
+                 viewport={{ once: true }}
+-                className="group rounded-2xl border border-transparent bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
++                className="group rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
+               >
+                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-[#0F3D91] transition-all duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
+                   <Icon size={30} />
+                 </div>
+ 
+                 <div className="mt-6 text-4xl font-bold text-[#FF8C00]">
+                   {step.number}
+                 </div>
+ 
+                 <h3 className="mt-4 text-2xl font-semibold text-[#0F3D91]">
+                   {step.title}
+                 </h3>
+ 
+                 <p className="mt-4 leading-7 text-gray-600">
+                   {step.description}
+                 </p>
+               </motion.div>
+             );
+           })}
+         </div>
+ 
+       </div>
+     </section>
+   );
+ }
+diff --git a/src/components/home/Services.jsx b/src/components/home/Services.jsx
+index 228639932b3b7d89255cec04d5dec04f0d720837..7b32dd69a6e9a644df66cc032b0e2a0ff9a07948 100644
+--- a/src/components/home/Services.jsx
++++ b/src/components/home/Services.jsx
+@@ -1,26 +1,27 @@
+ import { motion } from "framer-motion";
++import { Link } from "react-router-dom";
+ import {
+   FileText,
+   Receipt,
+   Calculator,
+   Building2,
+   Briefcase,
+   Landmark,
+   ArrowRight,
+ } from "lucide-react";
+ 
+ function Services() {
+   const services = [
+     {
+       icon: FileText,
+       title: "Income Tax Filing",
+       description:
+         "Accurate income tax return preparation and filing for salaried individuals, professionals and businesses.",
+     },
+     {
+       icon: Receipt,
+       title: "GST Services",
+       description:
+         "GST registration, return filing, annual compliance and advisory for businesses of every size.",
+     },
+     {
+@@ -66,68 +67,68 @@ function Services() {
+ 
+           <h2 className="mt-4 text-4xl font-bold text-[#0F3D91] lg:text-5xl">
+             Comprehensive Financial Services for Every Stage of Your Business
+           </h2>
+ 
+           <p className="mt-6 text-lg leading-8 text-gray-600">
+             From tax filing and accounting to business registration and
+             regulatory compliance, Audit Pulse delivers reliable financial
+             solutions that help individuals and businesses stay compliant,
+             organised and ready for growth.
+           </p>
+         </motion.div>
+ 
+         {/* Service Cards */}
+         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+           {services.map((service, index) => {
+             const Icon = service.icon;
+ 
+             return (
+               <motion.div
+                 key={service.title}
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ delay: index * 0.08 }}
+                 viewport={{ once: true }}
+-                className="group rounded-2xl border border-transparent bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
++                className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
+               >
+                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-[#0F3D91] transition-all duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
+                   <Icon size={30} />
+                 </div>
+ 
+                 <h3 className="mt-6 text-2xl font-semibold text-[#0F3D91]">
+                   {service.title}
+                 </h3>
+ 
+                 <p className="mt-4 leading-7 text-gray-600">
+                   {service.description}
+                 </p>
+ 
+                 <div className="mt-6 flex items-center gap-2 font-medium text-[#FF8C00] opacity-0 transition duration-300 group-hover:opacity-100">
+                   <span>Learn More</span>
+                   <ArrowRight size={18} />
+                 </div>
+               </motion.div>
+             );
+           })}
+         </div>
+ 
+         {/* CTA */}
+         <div className="mt-16 text-center">
+           <p className="mb-5 text-gray-600">
+             Need a solution tailored to your requirements?
+           </p>
+ 
+-          <a
+-            href="/services"
++          <Link
++            to="/services"
+             className="inline-flex items-center gap-3 rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-blue-900"
+           >
+             Explore Our Services
+             <ArrowRight size={20} />
+-          </a>
++          </Link>
+         </div>
+       </div>
+     </section>
+   );
+ }
+ 
+ export default Services;
+\ No newline at end of file
+diff --git a/src/components/home/WhyAuditPulse.jsx b/src/components/home/WhyAuditPulse.jsx
+index 38f28d06a7c17acaa496f84bf310f27274327e74..0561a98c302212c9ee8b0ac469525fde61660a56 100644
+--- a/src/components/home/WhyAuditPulse.jsx
++++ b/src/components/home/WhyAuditPulse.jsx
+@@ -1,117 +1,117 @@
+ import { motion } from "framer-motion";
+ import {
+   ShieldCheck,
+   Clock3,
+-  BadgeCheck,
+-  Users,
++  IndianRupee,
++  LockKeyhole,
++  Headphones,
+   BriefcaseBusiness,
+-  Smartphone,
+   ArrowRight,
+ } from "lucide-react";
+ 
+ function WhyAuditPulse() {
+   const features = [
+     {
+       icon: ShieldCheck,
+-      title: "Transparent Advice",
++      title: "Qualified Professionals",
+       description:
+-        "Clear communication, honest recommendations and complete transparency throughout every engagement.",
++        "Experienced professionals manage your accounting, taxation and compliance requirements with careful review.",
+     },
+     {
+       icon: Clock3,
+       title: "Timely Compliance",
+       description:
+         "Stay ahead of statutory deadlines with organised processes and timely execution.",
+     },
+     {
+-      icon: BadgeCheck,
+-      title: "Accuracy First",
++      icon: IndianRupee,
++      title: "Transparent Pricing",
+       description:
+-        "Every return, report and filing is prepared with precision and professional care.",
++        "Clear scopes, practical recommendations and transparent fee discussions before work begins.",
+     },
+     {
+-      icon: Users,
+-      title: "Personalized Support",
++      icon: LockKeyhole,
++      title: "Secure & Confidential",
+       description:
+-        "Solutions tailored to your individual or business requirements—not a one-size-fits-all approach.",
++        "Your financial documents and business information are handled with confidentiality and care.",
+     },
+     {
+       icon: BriefcaseBusiness,
+       title: "Business Focused",
+       description:
+         "Practical financial insights that help you make informed business decisions beyond compliance.",
+     },
+     {
+-      icon: Smartphone,
+-      title: "Modern & Digital",
++      icon: Headphones,
++      title: "Dedicated Support",
+       description:
+-        "Easy communication through WhatsApp, email and secure digital document sharing.",
++        "Responsive support keeps you informed from first consultation through ongoing compliance.",
+     },
+   ];
+ 
+   return (
+     <section className="bg-slate-50 py-24">
+       <div className="mx-auto max-w-7xl px-6">
+ 
+         {/* Heading */}
+         <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.6 }}
+           viewport={{ once: true }}
+           className="mx-auto max-w-3xl text-center"
+         >
+           <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
+             Why Choose Audit Pulse
+           </span>
+ 
+           <h2 className="mt-4 text-4xl font-bold text-[#0F3D91] lg:text-5xl">
+-            Why Businesses Trust Audit Pulse
++            Professional Support That Builds Confidence
+           </h2>
+ 
+           <p className="mt-6 text-lg leading-8 text-gray-600">
+             We combine professional expertise, transparent communication and
+             modern technology to deliver reliable accounting, taxation and
+             compliance services that help individuals and businesses move
+             forward with confidence.
+           </p>
+         </motion.div>
+ 
+         {/* Feature Cards */}
+         <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+           {features.map((feature, index) => {
+             const Icon = feature.icon;
+ 
+             return (
+               <motion.div
+                 key={feature.title}
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ delay: index * 0.08 }}
+                 viewport={{ once: true }}
+-                className="group rounded-2xl border border-transparent bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
++                className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
+               >
+                 <div className="inline-flex rounded-xl bg-blue-100 p-4 text-[#0F3D91] transition duration-300 group-hover:bg-[#0F3D91] group-hover:text-white">
+                   <Icon size={30} />
+                 </div>
+ 
+                 <h3 className="mt-6 text-2xl font-semibold text-[#0F3D91]">
+                   {feature.title}
+                 </h3>
+ 
+                 <p className="mt-4 leading-7 text-gray-600">
+                   {feature.description}
+                 </p>
+ 
+                 <div className="mt-6 flex items-center gap-2 font-medium text-[#FF8C00] opacity-0 transition duration-300 group-hover:opacity-100">
+                   <span>Committed to Excellence</span>
+                   <ArrowRight size={18} />
+                 </div>
+               </motion.div>
+             );
+           })}
+         </div>
+ 
+       </div>
+     </section>
+   );
+diff --git a/src/components/layout/Footer.jsx b/src/components/layout/Footer.jsx
+index 1b3782a1f34efcb86cd9c092d4da9433eb1935ff..398ba04ed9c0435b6acfa917ca8943ce79ee6bae 100644
+--- a/src/components/layout/Footer.jsx
++++ b/src/components/layout/Footer.jsx
+@@ -1,148 +1,156 @@
+ import {
+   Phone,
+   Mail,
+   Clock3,
+   MapPin,
+   Globe,
+   ChevronRight,
+ } from "lucide-react";
+-import { Link } from "react-router-dom";
++import { Link, useLocation } from "react-router-dom";
+ import { company, navigationItems, servicesList } from "../../data/company";
+ 
+ function Footer() {
+   const services = servicesList;
++  const location = useLocation();
++
++  const handleFooterLinkClick = (path) => {
++    if (location.pathname === path) {
++      window.scrollTo({ top: 0, behavior: "smooth" });
++    }
++  };
+   const quickLinks = navigationItems;
+ 
+   return (
+     <footer className="bg-[#0B1220] text-white">
+-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-6 lg:py-16">
++      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+ 
+         <div className="grid gap-10 lg:grid-cols-4">
+ 
+           {/* Brand */}
+           <div>
+             <h2 className="text-3xl font-bold text-white">
+               {company.name}
+             </h2>
+ 
+             <p className="mt-4 text-orange-400 font-medium">
+               {company.tagline}
+             </p>
+ 
+             <p className="mt-5 leading-7 text-gray-400">
+               {company.description}
+             </p>
+ 
+             <p className="mt-5 text-sm text-gray-500">
+               {company.serviceArea}
+             </p>
+           </div>
+ 
+           {/* Quick Links */}
+           <div>
+             <h3 className="text-lg font-semibold">
+               Quick Links
+             </h3>
+ 
+             <ul className="mt-6 space-y-4">
+               {quickLinks.map((item) => (
+                 <li key={item.name}>
+                   <Link
+                     to={item.path}
+-                    className="flex items-center gap-2 text-gray-300 transition hover:text-orange-400"
++                    onClick={() => handleFooterLinkClick(item.path)}
++                    className="flex items-center gap-2 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
+                   >
+                     <ChevronRight size={16} />
+                     {item.name}
+                   </Link>
+                 </li>
+               ))}
+             </ul>
+           </div>
+ 
+           {/* Services */}
+           <div>
+             <h3 className="text-lg font-semibold">
+               Services
+             </h3>
+ 
+             <ul className="mt-6 space-y-4">
+               {services.map((service) => (
+                 <li
+                   key={service}
+                   className="flex items-center gap-2 text-gray-300"
+                 >
+                   <ChevronRight size={16} />
+                   {service}
+                 </li>
+               ))}
+             </ul>
+           </div>
+ 
+           {/* Contact */}
+           <div>
+             <h3 className="text-lg font-semibold">
+               Contact
+             </h3>
+ 
+             <div className="mt-6 space-y-5">
+ 
+               <a
+                 href="tel:+919025973127"
+-                className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
++                className="flex items-start gap-3 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
+                 aria-label="Call Audit Pulse"
+               >
+                 <Phone size={20} className="mt-1 text-[#FF8C00]" />
+                 <span>{company.phone}</span>
+               </a>
+ 
+               <a
+                 href="mailto:info@theauditpulse.com"
+-                className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
++                className="flex items-start gap-3 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
+                 aria-label="Email Audit Pulse"
+               >
+                 <Mail size={20} className="mt-1 text-[#FF8C00]" />
+                 <span>{company.email}</span>
+               </a>
+ 
+               <div className="flex items-start gap-3">
+                 <Clock3 size={20} className="mt-1 text-[#FF8C00]" />
+                 <div className="text-gray-300">
+                   {company.hours.weekdays}
+                   <br />
+                   {company.hours.saturday}
+                 </div>
+               </div>
+ 
+               <div className="flex items-start gap-3">
+                 <MapPin size={20} className="mt-1 text-[#FF8C00]" />
+                 <span className="text-gray-300">
+                   {company.location}
+                 </span>
+               </div>
+ 
+               <a
+                 href="https://www.theauditpulse.com"
+                 target="_blank"
+                 rel="noopener noreferrer"
+-                className="flex items-start gap-3 text-gray-300 transition hover:text-orange-400"
++                className="flex items-start gap-3 rounded-md text-gray-300 transition hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 focus:ring-offset-[#0B1220]"
+                 aria-label="Visit Audit Pulse website"
+               >
+                 <Globe size={20} className="mt-1 text-[#FF8C00]" />
+                 <span>{company.website.replace("https://", "")}</span>
+               </a>
+ 
+             </div>
+           </div>
+ 
+         </div>
+ 
+         <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400 sm:mt-12 sm:pt-8">
+           © {new Date().getFullYear()} {company.name}. All Rights Reserved.
+         </div>
+ 
+       </div>
+     </footer>
+   );
+ }
+ 
+ export default Footer;
+\ No newline at end of file
+diff --git a/src/components/layout/Header.jsx b/src/components/layout/Header.jsx
+index c56c48f2740e46246ec2d83e9ff2e4746b891b0f..bc221e8ab3c58e361e5914ee08dd027678eb5dd4 100644
+--- a/src/components/layout/Header.jsx
++++ b/src/components/layout/Header.jsx
+@@ -1,139 +1,121 @@
+ import { useEffect, useState } from "react";
+-import { NavLink } from "react-router-dom";
++import { NavLink, useLocation } from "react-router-dom";
+ import { Menu, X } from "lucide-react";
+ 
+ import logo from "../../assets/logo/logo-navbar.webp";
+ import { navigationItems } from "../../data/company";
+ 
+ function Header() {
+   const [menuOpen, setMenuOpen] = useState(false);
+   const [scrolled, setScrolled] = useState(false);
++  const location = useLocation();
+ 
+   useEffect(() => {
+-    const handleScroll = () => {
+-      setScrolled(window.scrollY > 20);
+-    };
+-
+-    window.addEventListener("scroll", handleScroll);
+-
++    const handleScroll = () => setScrolled(window.scrollY > 12);
++    handleScroll();
++    window.addEventListener("scroll", handleScroll, { passive: true });
+     return () => window.removeEventListener("scroll", handleScroll);
+   }, []);
+ 
++
++  const handleNavigate = (path) => {
++    setMenuOpen(false);
++    if (location.pathname === path) {
++      window.scrollTo({ top: 0, behavior: "smooth" });
++    }
++  };
++
+   return (
+     <header
+-      className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 ${
+-        scrolled
+-          ? "shadow-md border-b border-gray-200"
+-          : "border-b border-gray-100"
++      className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur-xl transition-all duration-300 ${
++        scrolled ? "border-gray-200 shadow-lg shadow-slate-900/5" : "border-gray-100"
+       }`}
+     >
+-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-6">
+-
+-        {/* Logo */}
+-
++      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+         <NavLink
+           to="/"
+-          className="flex items-center gap-4"
+-          onClick={() => setMenuOpen(false)}
++          aria-label="Audit Pulse home"
++          className="flex min-w-0 items-center rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-4"
++          onClick={() => handleNavigate("/")}
+         >
+           <img
+             src={logo}
+             alt="Audit Pulse"
+             width={1065}
+             height={399}
+             loading="eager"
+             decoding="async"
+-            className="h-20 w-auto sm:h-24 lg:h-28 transition-all duration-300"
++            className={`w-auto transition-all duration-300 ${scrolled ? "h-16 sm:h-20 lg:h-24" : "h-[4.5rem] sm:h-24 lg:h-28"}`}
+           />
+         </NavLink>
+ 
+-        {/* Desktop Navigation */}
+-
+-        <nav className="hidden items-center gap-10 lg:flex">
++        <nav className="hidden items-center gap-2 rounded-full border border-gray-100 bg-white/80 px-2 py-2 shadow-sm lg:flex" aria-label="Primary navigation">
+           {navigationItems.map((item) => (
+             <NavLink
+               key={item.name}
+               to={item.path}
++              onClick={() => handleNavigate(item.path)}
+               className={({ isActive }) =>
+-                `relative pb-1 font-medium transition duration-300 ${
+-                  isActive
+-                    ? "text-[#0F3D91] after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-full after:rounded-full after:bg-[#FF8C00]"
+-                    : "text-gray-600 hover:text-[#0F3D91]"
++                `rounded-full px-4 py-2 text-sm font-semibold transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 ${
++                  isActive ? "bg-blue-50 text-[#0F3D91]" : "text-gray-600 hover:bg-slate-50 hover:text-[#0F3D91]"
+                 }`
+               }
+             >
+               {item.name}
+             </NavLink>
+           ))}
+         </nav>
+ 
+-        {/* CTA */}
+-
+         <NavLink
+           to="/contact"
+-          className="hidden rounded-xl bg-[#FF8C00] px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-[#E67E00] focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:block"
++          onClick={() => handleNavigate("/contact")}
++          className="hidden rounded-full bg-[#FF8C00] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition duration-300 hover:-translate-y-0.5 hover:bg-[#E67E00] focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:inline-flex"
+         >
+-          Get Free Consultation
++          Free Consultation
+         </NavLink>
+ 
+-        {/* Mobile Button */}
+-
+         <button
+           type="button"
+-          onClick={() => setMenuOpen(!menuOpen)}
++          onClick={() => setMenuOpen((open) => !open)}
+           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+           aria-expanded={menuOpen}
+           aria-controls="mobile-navigation"
+-          className="rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 lg:hidden"
++          className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-white text-[#0F3D91] shadow-sm transition hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 lg:hidden"
+         >
+-          {menuOpen ? (
+-            <X size={30} className="text-[#0F3D91]" />
+-          ) : (
+-            <Menu size={30} className="text-[#0F3D91]" />
+-          )}
++          {menuOpen ? <X size={26} aria-hidden="true" /> : <Menu size={26} aria-hidden="true" />}
+         </button>
+       </div>
+ 
+-      {/* Mobile Menu */}
+-
+-      {menuOpen && (
+-        <div
+-          id="mobile-navigation"
+-          className="border-t border-gray-200 bg-white lg:hidden"
+-        >
+-          <nav
+-            className="flex flex-col px-6 py-4"
+-            aria-label="Mobile navigation"
+-          >
+-            {navigationItems.map((item) => (
+-              <NavLink
+-                key={item.name}
+-                to={item.path}
+-                onClick={() => setMenuOpen(false)}
+-                className={({ isActive }) =>
+-                  `rounded-lg px-4 py-3 text-base font-medium transition focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2 ${
+-                    isActive
+-                      ? "bg-blue-50 text-[#0F3D91]"
+-                      : "text-gray-700 hover:bg-gray-100"
+-                  }`
+-                }
+-              >
+-                {item.name}
+-              </NavLink>
+-            ))}
+-
++      <div
++        id="mobile-navigation"
++        className={`overflow-hidden border-t border-gray-100 bg-white transition-all duration-300 lg:hidden ${menuOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"}`}
++      >
++        <nav className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 sm:px-6" aria-label="Mobile navigation">
++          {navigationItems.map((item) => (
+             <NavLink
+-              to="/contact"
+-              onClick={() => setMenuOpen(false)}
+-              className="mt-4 rounded-xl bg-[#FF8C00] px-6 py-3 text-center font-semibold text-white focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2"
++              key={item.name}
++              to={item.path}
++              onClick={() => handleNavigate(item.path)}
++              className={({ isActive }) =>
++                `rounded-xl px-4 py-3 text-base font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2 ${
++                  isActive ? "bg-blue-50 text-[#0F3D91]" : "text-gray-700 hover:bg-gray-50 hover:text-[#0F3D91]"
++                }`
++              }
+             >
+-              Get Free Consultation
++              {item.name}
+             </NavLink>
+-          </nav>
+-        </div>
+-      )}
++          ))}
++          <NavLink
++            to="/contact"
++            onClick={() => handleNavigate("/contact")}
++            className="mt-2 rounded-xl bg-[#FF8C00] px-6 py-3 text-center font-bold text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-[#0F3D91] focus:ring-offset-2"
++          >
++            Get Free Consultation
++          </NavLink>
++        </nav>
++      </div>
+     </header>
+   );
+ }
+ 
+-export default Header;
+\ No newline at end of file
++export default Header;
+diff --git a/src/pages/Resources.jsx b/src/pages/Resources.jsx
+index 9a3dec8fedf72c5004a5899356e369cffca429bc..136cb922fc4f2a0071e6f1050a8c521f5f620320 100644
+--- a/src/pages/Resources.jsx
++++ b/src/pages/Resources.jsx
+@@ -1,27 +1,28 @@
+ import { Download } from "lucide-react";
+ import { Helmet } from "react-helmet-async";
++import { Link } from "react-router-dom";
+ 
+ import Footer from "../components/layout/Footer";
+ import Header from "../components/layout/Header";
+ import { seoDefaults } from "../data/company";
+ import {
+   resourceCategories,
+   featuredArticles,
+   resourcesIntro,
+   downloadCenter,
+ } from "../data/resources";
+ 
+ function Resources() {
+   return (
+     <>
+       <Helmet>
+         <title>Resources | Tax, GST & Accounting Guides | {seoDefaults.siteName}</title>
+ 
+         <meta
+           name="description"
+           content={`Explore ${seoDefaults.siteName}'s knowledge centre featuring tax guides, GST resources, accounting insights, ROC compliance articles and practical business advisory content.`}
+         />
+ 
+         <meta
+           name="keywords"
+           content={`Income Tax Guide, GST Guide, Accounting Resources, ROC Compliance, Business Advisory, Tax Articles, ${seoDefaults.siteName}`}
+@@ -32,80 +33,80 @@ function Resources() {
+           href={`${seoDefaults.canonicalBaseUrl}/resources`}
+         />
+ 
+         <meta
+           property="og:title"
+           content={`Resources & Insights | ${seoDefaults.siteName}`}
+         />
+ 
+         <meta
+           property="og:description"
+           content={`Stay informed with practical accounting, taxation, GST and compliance resources from ${seoDefaults.siteName}.`}
+         />
+ 
+         <meta
+           property="og:url"
+           content={`${seoDefaults.canonicalBaseUrl}/resources`}
+         />
+ 
+         <meta property="og:type" content="website" />
+         <meta property="og:image" content={`${seoDefaults.canonicalBaseUrl}/og-image.jpg`} />
+       </Helmet>
+ 
+       <Header />
+ 
+       <main>
+-        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
++        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-16 sm:py-20 lg:py-24">
+           <div className="mx-auto max-w-7xl px-6 text-center">
+             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
+               Knowledge Centre
+             </span>
+ 
+-            <h1 className="mt-4 text-5xl font-bold text-[#0F3D91] lg:text-6xl">
++            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl text-[#0F3D91] lg:text-6xl">
+               {resourcesIntro.title}
+             </h1>
+ 
+             <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600">
+               {resourcesIntro.description}
+             </p>
+           </div>
+         </section>
+ 
+         <section className="bg-white py-20">
+           <div className="mx-auto max-w-7xl px-6">
+             <h2 className="text-center text-4xl font-bold text-[#0F3D91]">
+               Featured Categories
+             </h2>
+ 
+             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+               {resourceCategories.map((category) => {
+                 const Icon = category.icon;
+ 
+                 return (
+                   <div
+                     key={category.title}
+-                    className="rounded-2xl border border-transparent bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
++                    className="rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
+                   >
+                     <Icon className="text-[#0F3D91]" size={38} />
+ 
+                     <h3 className="mt-5 text-2xl font-semibold text-[#0F3D91]">
+                       {category.title}
+                     </h3>
+ 
+                     <p className="mt-3 text-gray-600">{category.desc}</p>
+                   </div>
+                 );
+               })}
+             </div>
+           </div>
+         </section>
+ 
+         <section className="bg-slate-50 py-20">
+           <div className="mx-auto max-w-7xl px-6">
+             <h2 className="text-center text-4xl font-bold text-[#0F3D91]">
+               Featured Guides
+             </h2>
+ 
+             <div className="mt-12 grid gap-6 md:grid-cols-2">
+               {featuredArticles.map((article) => (
+                 <div
+                   key={article}
+@@ -113,41 +114,41 @@ function Resources() {
+                 >
+                   <h3 className="font-semibold text-[#0F3D91]">{article}</h3>
+ 
+                   <p className="mt-2 text-gray-600">
+                     Coming soon. This guide will provide practical information
+                     and compliance tips.
+                   </p>
+                 </div>
+               ))}
+             </div>
+           </div>
+         </section>
+ 
+         <section className="bg-white py-20">
+           <div className="mx-auto max-w-7xl px-6 text-center">
+             <Download className="mx-auto text-[#FF8C00]" size={48} />
+ 
+             <h2 className="mt-6 text-4xl font-bold text-[#0F3D91]">
+               {downloadCenter.title}
+             </h2>
+ 
+             <p className="mt-4 text-gray-600">
+               {downloadCenter.description}
+             </p>
+ 
+-            <a
+-              href="/contact"
++            <Link
++              to="/contact"
+               className="mt-8 inline-block rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white transition hover:bg-blue-900"
+             >
+               {downloadCenter.ctaLabel}
+-            </a>
++            </Link>
+           </div>
+         </section>
+       </main>
+ 
+       <Footer />
+     </>
+   );
+ }
+ 
+ export default Resources;
+\ No newline at end of file
+diff --git a/src/pages/Services.jsx b/src/pages/Services.jsx
+index 5762525f3636079ca1232b7bce0c795159b8a0c8..6b45b71535e9397b79a4083742ea95f56723b4c2 100644
+--- a/src/pages/Services.jsx
++++ b/src/pages/Services.jsx
+@@ -1,26 +1,27 @@
+ import { Helmet } from "react-helmet-async";
++import { Link } from "react-router-dom";
+ import Header from "../components/layout/Header";
+ import Footer from "../components/layout/Footer";
+ import { services } from "../data/services";
+ import { seoDefaults } from "../data/company";
+ 
+ function Services() {
+   return (
+     <>
+       <Helmet>
+         <title>Services | {seoDefaults.siteName}</title>
+ 
+         <meta
+           name="description"
+           content={`Explore ${seoDefaults.siteName}'s professional accounting, income tax, GST, bookkeeping, ROC compliance, business registration and advisory services across India.`}
+         />
+ 
+         <meta
+           name="keywords"
+           content="Accounting Services, GST Services, Income Tax Filing, Bookkeeping, ROC Compliance, Business Registration, Audit Pulse"
+         />
+ 
+         <link
+           rel="canonical"
+           href={`${seoDefaults.canonicalBaseUrl}/services`}
+         />
+@@ -32,104 +33,104 @@ function Services() {
+ 
+         <meta
+           property="og:description"
+           content={`Comprehensive accounting, taxation and business compliance services tailored for individuals, startups and businesses.`}
+         />
+ 
+         <meta
+           property="og:url"
+           content={`${seoDefaults.canonicalBaseUrl}/services`}
+         />
+ 
+         <meta
+           property="og:type"
+           content="website"
+         />
+ 
+         <meta
+           property="og:image"
+           content={`${seoDefaults.canonicalBaseUrl}/og-image.jpg`}
+         />
+       </Helmet>
+ 
+       <Header />
+ 
+       <main>
+-        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-24">
++        <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-16 sm:py-20 lg:py-24">
+           <div className="mx-auto max-w-7xl px-6 text-center">
+             <span className="font-semibold uppercase tracking-widest text-[#FF8C00]">
+               Our Services
+             </span>
+ 
+-            <h1 className="mt-4 text-5xl font-bold text-[#0F3D91] lg:text-6xl">
++            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl text-[#0F3D91] lg:text-6xl">
+               Professional Accounting & Tax Solutions
+             </h1>
+ 
+             <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600">
+               End-to-end accounting, taxation and compliance services designed
+               for individuals, startups and businesses.
+             </p>
+           </div>
+         </section>
+ 
+-        <section className="bg-white py-24">
++        <section className="bg-white py-16 sm:py-20 lg:py-24">
+           <div className="mx-auto max-w-7xl px-6">
+             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+               {services.map((service) => {
+                 const Icon = service.icon;
+ 
+                 return (
+                   <div
+                     key={service.title}
+-                    className="rounded-2xl border border-transparent bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF8C00] hover:shadow-2xl"
++                    className="rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF8C00] hover:shadow-xl"
+                   >
+                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-[#0F3D91]">
+                       <Icon size={28} />
+                     </div>
+ 
+                     <h2 className="mt-6 text-2xl font-bold text-[#0F3D91]">
+                       {service.title}
+                     </h2>
+ 
+                     <p className="mt-4 text-gray-600">
+                       {service.description}
+                     </p>
+ 
+                     <ul className="mt-6 space-y-2 text-gray-700">
+                       {service.points.map((point) => (
+                         <li key={point}>✓ {point}</li>
+                       ))}
+                     </ul>
+                   </div>
+                 );
+               })}
+             </div>
+           </div>
+         </section>
+ 
+         <section className="bg-[#0F3D91] py-20 text-center text-white">
+           <div className="mx-auto max-w-4xl px-6">
+             <h2 className="text-4xl font-bold">
+               Need Professional Financial Guidance?
+             </h2>
+ 
+             <p className="mt-6 text-lg text-blue-100">
+               Whether you're an individual or a growing business, {seoDefaults.siteName} is
+               here to simplify your accounting, taxation and compliance.
+             </p>
+ 
+-            <a
+-              href="/contact"
++            <Link
++              to="/contact"
+               className="mt-10 inline-block rounded-xl bg-[#FF8C00] px-8 py-4 font-semibold text-white transition hover:bg-orange-600"
+             >
+               Get Free Consultation
+-            </a>
++            </Link>
+           </div>
+         </section>
+       </main>
+ 
+       <Footer />
+     </>
+   );
+ }
+ 
+ export default Services;
+\ No newline at end of file
+ 
+EOF
+)

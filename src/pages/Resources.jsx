@@ -12,6 +12,12 @@ import {
   downloadCenter,
 } from "../data/resources";
 
+const scrollToPageTop = () => {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+};
+
 function Resources() {
   return (
     <>
@@ -138,6 +144,7 @@ function Resources() {
 
             <Link
               to="/contact"
+              onClick={scrollToPageTop}
               className="mt-8 inline-block rounded-xl bg-[#0F3D91] px-8 py-4 font-semibold text-white transition hover:bg-blue-900"
             >
               {downloadCenter.ctaLabel}

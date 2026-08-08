@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import {
   ShieldCheck,
   Clock3,
-  BadgeCheck,
+  IndianRupee,
   Users,
   BriefcaseBusiness,
-  Smartphone,
+  Headphones,
   ArrowRight,
 } from "lucide-react";
 
@@ -24,7 +24,7 @@ function WhyAuditPulse() {
         "Stay ahead of statutory deadlines with organised processes and timely execution.",
     },
     {
-      icon: BadgeCheck,
+      icon: IndianRupee,
       title: "Accuracy First",
       description:
         "Every return, report and filing is prepared with precision and professional care.",
@@ -42,7 +42,7 @@ function WhyAuditPulse() {
         "Practical financial insights that help you make informed business decisions beyond compliance.",
     },
     {
-      icon: Smartphone,
+      icon: Headphones,
       title: "Modern & Digital",
       description:
         "Easy communication through WhatsApp, email and secure digital document sharing.",
